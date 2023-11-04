@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Sync O\' Task</string>
+
+    <string name="lblLogin">LOGIN</string>
+    <string name="lblLoginMessage">Please Sign In to continue</string>
+    <string name="hintLoginUser">User</string>
+    <string name="hintLoginPassword">Password</string>
+    <string name="lblLoginRemember">Remember me</string>
+    <string name="lblLoginForgot">Forgot Password?</string>
+    <string name="btnLogin">Sign In</string>
+    <string name="lblLoginVersion">Version 1.0.0</string>
 </resources>
