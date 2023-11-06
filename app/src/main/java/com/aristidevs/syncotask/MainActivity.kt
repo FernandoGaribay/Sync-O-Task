@@ -1,7 +1,8 @@
-package com.aristidevs.syncotask
+package com.aristidevs.syncotask.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aristidevs.syncotask.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
