@@ -19,7 +19,7 @@ class dashboard : AppCompatActivity() {
     }
 
     private fun initRecyclerView(){
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = findViewById<RecyclerView>(R.id.inProgressRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = CustomAdapter(TaskProvider.listTasks)
     }
