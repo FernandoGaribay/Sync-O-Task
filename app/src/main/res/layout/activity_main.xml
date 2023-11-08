@@ -133,6 +133,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnLogin"
                 android:theme="@style/Buttons.SyncOTask"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
