@@ -1,7 +1,6 @@
 package com.aristidevs.syncotask.activity
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +11,7 @@ import com.aristidevs.syncotask.adapters.CustomAdapter
 import com.aristidevs.syncotask.objects.TaskProvider
 
 
-class dashboard : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
 
     lateinit var btnMyTasks: LinearLayout
     lateinit var btnMyNotes: LinearLayout

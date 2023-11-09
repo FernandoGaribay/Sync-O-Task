@@ -12,9 +12,17 @@
     </style>
 
     <!-- Controles Activity Login -->
-    <style name="EditText.Login.SyncOTask" parent="SyncOTask" >
+    <style name="EditTextUser.Login.SyncOTask" parent="SyncOTask" >
         <item name="android:drawableTint">@color/light_gray</item>
         <item name="android:drawableEnd">@drawable/ic_user</item>
+        <item name="android:ems">10</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="EditTextPass.Login.SyncOTask" parent="SyncOTask" >
+        <item name="android:drawableTint">@color/light_gray</item>
+        <item name="android:drawableEnd">@drawable/ic_lock</item>
         <item name="android:ems">10</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/light_gray</item>

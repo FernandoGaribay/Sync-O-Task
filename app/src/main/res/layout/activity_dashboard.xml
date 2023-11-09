@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activity.dashboard">
+    tools:context=".activity.DashboardActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="Tasks In Process"
+                android:text="@string/dashboard_tasksProcess"
                 android:textAlignment="textStart"
                 android:textColor="@color/dark_gray"
                 android:textSize="25sp"
@@ -144,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Your Tasks"
+                android:text="@string/dashboard_yourTasks"
                 android:textAlignment="textStart"
                 android:textColor="@color/dark_gray"
                 android:textSize="25sp"
@@ -197,7 +197,7 @@
                                 android:layout_weight="0.5"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
-                                android:text="Max Priority"
+                                android:text="@string/dashboard_maxPriority"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -254,7 +254,7 @@
                                 android:layout_weight="0.5"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
-                                android:text="Max Priority"
+                                android:text="@string/dashboard_highPriority"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -311,7 +311,7 @@
                                 android:layout_weight="0.5"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
-                                android:text="Max Priority"
+                                android:text="@string/dashboard_mediumPriority"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -368,7 +368,7 @@
                                 android:layout_weight="0.5"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
-                                android:text="Max Priority"
+                                android:text="@string/dashboard_lowPriority"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -468,7 +468,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="6dp"
-                    android:text="My Tasks"
+                    android:text="@string/dashboard_myTasks"
                     android:textColor="@color/white" />
 
             </LinearLayout>
@@ -492,7 +492,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="6dp"
-                    android:text="My Notes"
+                    android:text="@string/dashboard_myNotes"
                     android:textColor="@color/white" />
 
             </LinearLayout>
@@ -526,7 +526,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="6dp"
-                    android:text="Pomodoro"
+                    android:text="@string/dashboard_pomodoro"
                     android:textColor="@color/white" />
 
             </LinearLayout>
@@ -550,7 +550,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="6dp"
-                    android:text="Calendar"
+                    android:text="@string/dashboard_calendar"
                     android:textColor="@color/white" />
 
             </LinearLayout>

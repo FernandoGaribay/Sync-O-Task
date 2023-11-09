@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         btnLogin = findViewById<Button>(R.id.btnLogin)
 
         btnLogin.setOnClickListener {
-            val intent = Intent(this, dashboard::class.java)
+            val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish() // Cierra activity_main para que el usuario no pueda volver atrás
         }

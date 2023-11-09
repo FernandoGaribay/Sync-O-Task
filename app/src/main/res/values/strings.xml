@@ -1,12 +1,26 @@
 <resources>
     <string name="app_name">Sync O\' Task</string>
 
-    <string name="lblLogin">LOGIN</string>
-    <string name="lblLoginMessage">Please Sign In to continue</string>
-    <string name="hintLoginUser">User</string>
-    <string name="hintLoginPassword">Password</string>
-    <string name="lblLoginRemember">Remember me</string>
-    <string name="lblLoginForgot">Forgot Password?</string>
-    <string name="btnLogin">Sign In</string>
-    <string name="lblLoginVersion">Version 1.0.0</string>
+    <!--Activity Login Strings-->
+    <string name="login_lblLogin">LOGIN</string>
+    <string name="login_lblMessage">Please Sign In to continue</string>
+    <string name="login_hintUser">User</string>
+    <string name="login_hintPassword">Password</string>
+    <string name="login_lblRemember">Remember me</string>
+    <string name="login_lblForgot">Forgot Password?</string>
+    <string name="login_btnLogin">Sign In</string>
+    <string name="login_lblVersion">Version 1.0.0</string>
+
+    <!--Activity Dashboard Strings-->
+    <string name="dashboard_tasksProcess">Tasks in process</string>
+    <string name="dashboard_yourTasks">Your Tasks</string>
+    <string name="dashboard_maxPriority">Maximum Priority</string>
+    <string name="dashboard_highPriority">High Priority</string>
+    <string name="dashboard_mediumPriority">Medium Priority</string>
+    <string name="dashboard_lowPriority">Low Priority</string>
+    <string name="dashboard_myTasks">My Tasks</string>
+    <string name="dashboard_myNotes">My Notes</string>
+    <string name="dashboard_pomodoro">Pomodoro</string>
+    <string name="dashboard_calendar">Calendar</string>
+
 </resources>

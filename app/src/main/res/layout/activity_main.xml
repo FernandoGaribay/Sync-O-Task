@@ -71,9 +71,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="@string/lblLogin"
+                android:text="@string/login_lblLogin"
                 android:textColor="@color/black"
                 android:textSize="55sp"
                 android:textStyle="bold" />
@@ -82,28 +81,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-5dp"
-                android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="@string/lblLoginMessage"
+                android:text="@string/login_lblMessage"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="normal" />
 
             <EditText
-                android:theme="@style/EditText.Login.SyncOTask"
+                android:theme="@style/EditTextUser.Login.SyncOTask"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="60dp"
-                android:hint="@string/hintLoginUser"
+                android:hint="@string/login_hintUser"
                 android:inputType="text"
                 android:textSize="20sp" />
 
             <EditText
-                android:theme="@style/EditText.Login.SyncOTask"
+                android:theme="@style/EditTextPass.Login.SyncOTask"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:hint="@string/hintLoginPassword"
+                android:hint="@string/login_hintPassword"
                 android:inputType="text"
                 android:textSize="20sp" />
 
@@ -117,8 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/alata"
-                    android:text="@string/lblLoginRemember"
+                    android:text="@string/login_lblRemember"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -126,9 +123,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/alata"
                     android:gravity="right"
-                    android:text="@string/lblLoginForgot"
+                    android:text="@string/login_lblForgot"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -138,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="60dp"
-                android:text="@string/btnLogin"
+                android:text="@string/login_btnLogin"
                 android:textSize="25sp" />
 
         </LinearLayout>
@@ -157,7 +153,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lblLoginVersion"
+            android:text="@string/login_lblVersion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
