@@ -7,11 +7,14 @@ import android.widget.Button
 import com.aristidevs.syncotask.R
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var btnLogin: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        btnLogin = findViewById<Button>(R.id.btnLogin)
+
         btnLogin.setOnClickListener {
             val intent = Intent(this, dashboard::class.java)
             startActivity(intent)

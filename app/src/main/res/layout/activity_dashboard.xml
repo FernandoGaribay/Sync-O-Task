@@ -450,6 +450,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
+                android:id="@+id/dashboard_btnMyTasks"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -473,6 +474,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/dashboard_btnMyNotes"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -506,6 +508,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/dashboard_btnPomodoro"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -529,6 +532,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/dashboard_btnCalendar"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
