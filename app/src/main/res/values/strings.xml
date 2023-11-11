@@ -23,4 +23,19 @@
     <string name="dashboard_pomodoro">Pomodoro</string>
     <string name="dashboard_calendar">Calendar</string>
 
+    <!--Activity Create Task Strings-->
+    <string name="createTask_lblCreateTask">CREATE NEW TASK</string>
+    <string name="createTask_lblTitle">Title</string>
+    <string name="createTask_lblDate">Date</string>
+    <string name="createTask_lblStartTime">Start Time</string>
+    <string name="createTask_lblEndTime">End Time</string>
+    <string name="createTask_lblDescription">Description</string>
+    <string name="createTask_lblSubTasks">Sub-Tasks</string>
+    <string name="createTask_lblTags">Tags</string>
+    <string name="createTask_lblPriority">Priority</string>
+    <string name="createTask_lblMaxPriority"> Max</string>
+    <string name="createTask_lblHighPriority"> High</string>
+    <string name="createTask_lblMediumPriority"> Medium</string>
+    <string name="createTask_lblLowPriority"> Low</string>
+
 </resources>
