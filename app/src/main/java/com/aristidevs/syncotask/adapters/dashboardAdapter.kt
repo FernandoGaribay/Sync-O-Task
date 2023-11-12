@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.objects.Task
 
-class CustomAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class dashboardAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<dashboardAdapter.ViewHolder>() {
 
     //val images = intArrayOf(R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground)
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup, false)
+        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_dashboard_task, viewGroup, false)
         return ViewHolder(v);
     }
 

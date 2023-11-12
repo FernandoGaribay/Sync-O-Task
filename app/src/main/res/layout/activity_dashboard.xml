@@ -164,6 +164,7 @@
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Tasks_MaxPriority"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="9dp"

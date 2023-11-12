@@ -38,4 +38,12 @@
     <string name="createTask_lblMediumPriority"> Medium</string>
     <string name="createTask_lblLowPriority"> Low</string>
 
+    <!--Activity List Of Tasks Strings-->
+    <string name="listTasks_lblMyTasks">My Tasks</string>
+    <string name="listTasks_lblOverdue">Overdue</string>
+    <string name="listTasks_lblToDo">To Do</string>
+    <string name="listTasks_lblOpen">Open</string>
+    <string name="listTasks_lblDueToday">Due Today</string>
+    <string name="listTasks_lblSortBy">Sort By</string>
+
 </resources>
