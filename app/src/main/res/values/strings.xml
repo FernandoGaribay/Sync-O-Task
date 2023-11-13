@@ -33,10 +33,10 @@
     <string name="createTask_lblSubTasks">Sub-Tasks</string>
     <string name="createTask_lblTags">Tags</string>
     <string name="createTask_lblPriority">Priority</string>
-    <string name="createTask_lblMaxPriority"> Max</string>
-    <string name="createTask_lblHighPriority"> High</string>
-    <string name="createTask_lblMediumPriority"> Medium</string>
-    <string name="createTask_lblLowPriority"> Low</string>
+    <string name="createTask_lblMaxPriority">Max</string>
+    <string name="createTask_lblHighPriority">High</string>
+    <string name="createTask_lblMediumPriority">Medium</string>
+    <string name="createTask_lblLowPriority">Low</string>
 
     <!--Activity List Of Tasks Strings-->
     <string name="listTasks_lblMyTasks">My Tasks</string>
@@ -45,5 +45,23 @@
     <string name="listTasks_lblOpen">Open</string>
     <string name="listTasks_lblDueToday">Due Today</string>
     <string name="listTasks_lblSortBy">Sort By</string>
+
+    <!--Activity Edit Task Strings-->
+    <string name="editTask_lblCreateTask">EDIT TASK</string>
+    <string name="editTask_lblTitle">Title</string>
+    <string name="editTask_lblDate">Date</string>
+    <string name="editTask_lblStartTime">Start Time</string>
+    <string name="editTask_lblEndTime">End Time</string>
+    <string name="editTask_lblDescription">Description</string>
+    <string name="editTask_lblSubTasks">Sub-Tasks</string>
+    <string name="editTask_hintSUbTask">Sub-Task name</string>
+    <string name="editTask_lblTags">Tags</string>
+    <string name="editTask_lblPriority">Priority</string>
+    <string name="editTask_lblMaxPriority">Max</string>
+    <string name="editTask_lblHighPriority">High</string>
+    <string name="editTask_lblMediumPriority">Medium</string>
+    <string name="editTask_lblLowPriority">Low</string>
+    <string name="editTask_btnEditTask">Edit</string>
+    <string name="editTask_btnDeleteTask">Delete</string>
 
 </resources>

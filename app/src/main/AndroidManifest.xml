@@ -13,6 +13,16 @@
         android:theme="@style/SyncOTask"
         tools:targetApi="31">
         <activity
+            android:name=".activity_edit_task"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".activity_list_tasks"
             android:exported="false" >
 
@@ -32,12 +42,8 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
