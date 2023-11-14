@@ -222,6 +222,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Tasks_HighPriority"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="9dp"
@@ -279,6 +280,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Tasks_MediumPriority"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="9dp"
@@ -336,6 +338,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Tasks_LowPriority"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="9dp"

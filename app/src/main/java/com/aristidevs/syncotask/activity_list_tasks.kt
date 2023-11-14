@@ -3,12 +3,15 @@ package com.aristidevs.syncotask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.adapters.listTasksAdapter
+import com.aristidevs.syncotask.interfaces.onTaskClickListener
+import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
 
-class activity_list_tasks : AppCompatActivity() {
+class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
 
     lateinit var btnBack : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,13 @@ class activity_list_tasks : AppCompatActivity() {
 
     private fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.listTasksRecycler)
+        val adapter = listTasksAdapter(TaskProvider.listTasks)
+        adapter.setOnTaskClickListener(this)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerView.adapter = listTasksAdapter(TaskProvider.listTasks)
+        recyclerView.adapter = adapter
+    }
+
+    override fun onItemClick(task: Task) {
+        Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
     }
 }

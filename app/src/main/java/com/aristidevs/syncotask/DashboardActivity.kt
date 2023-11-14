@@ -25,6 +25,9 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var btnCreateTask: FloatingActionButton
 
     lateinit var btnMaxPriority: CardView
+    lateinit var btnHighPriority: CardView
+    lateinit var btnMediumPriority: CardView
+    lateinit var btnLowPriority: CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -59,6 +62,24 @@ class DashboardActivity : AppCompatActivity() {
 
         btnMaxPriority = findViewById<CardView>(R.id.btn_Tasks_MaxPriority)
         btnMaxPriority.setOnClickListener {
+            val intent = Intent(this, activity_list_tasks::class.java)
+            startActivity(intent)
+        }
+
+        btnHighPriority = findViewById<CardView>(R.id.btn_Tasks_HighPriority)
+        btnHighPriority.setOnClickListener {
+            val intent = Intent(this, activity_list_tasks::class.java)
+            startActivity(intent)
+        }
+
+        btnMediumPriority = findViewById<CardView>(R.id.btn_Tasks_MediumPriority)
+        btnMediumPriority.setOnClickListener {
+            val intent = Intent(this, activity_list_tasks::class.java)
+            startActivity(intent)
+        }
+
+        btnLowPriority = findViewById<CardView>(R.id.btn_Tasks_LowPriority)
+        btnLowPriority.setOnClickListener {
             val intent = Intent(this, activity_list_tasks::class.java)
             startActivity(intent)
         }

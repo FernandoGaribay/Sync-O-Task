@@ -8,7 +8,7 @@ class TaskProvider {
             listTasks.addAll(
                 listOf(
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 1",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -18,7 +18,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 2",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -28,7 +28,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 3",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -38,7 +38,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 4",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -48,7 +48,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 5",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -58,7 +58,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 6",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -68,7 +68,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 7",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
@@ -78,7 +78,7 @@ class TaskProvider {
                         priority = "High Priority"
                     ),
                     Task(
-                        title = "UI Aplicacion",
+                        title = "Tarea 8",
                         date = "23/Noviembre/2023",
                         startTime = "09:30",
                         endTime = "10:00",
