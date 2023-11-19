@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "148463168118",
+    "firebase_url": "https://sync-o-task-mobile-default-rtdb.firebaseio.com",
+    "project_id": "sync-o-task-mobile",
+    "storage_bucket": "sync-o-task-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148463168118:android:51e1c5d746d051544acd57",
+        "android_client_info": {
+          "package_name": "com.aristidevs.syncotask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcqRYZP8_r-YZZ2vqQ0hTT2VWzLgfQDN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

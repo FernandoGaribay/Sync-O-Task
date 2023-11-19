@@ -12,6 +12,7 @@ import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.activity_createTask
 import com.aristidevs.syncotask.activity_list_tasks
 import com.aristidevs.syncotask.adapters.dashboardAdapter
+import com.aristidevs.syncotask.adapters.listTasksAdapter
 import com.aristidevs.syncotask.objects.TaskProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -88,7 +89,15 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.inProgressRecycler)
+        val taskProvider = TaskProvider()
+        val adapter = dashboardAdapter(taskProvider.listTasks)
+
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = dashboardAdapter(TaskProvider.listTasks)
+        recyclerView.adapter = adapter
+
+        // Registra el callback para actualizar el adaptador cuando los datos cambien
+        taskProvider.setOnDataChangedCallback {
+            adapter.notifyDataSetChanged()
+        }
     }
 }

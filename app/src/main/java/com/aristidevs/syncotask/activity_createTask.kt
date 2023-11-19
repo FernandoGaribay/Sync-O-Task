@@ -20,6 +20,9 @@ import androidx.core.content.ContextCompat
 import com.aristidevs.syncotask.dialogs.CreateTagDialog
 import com.aristidevs.syncotask.dialogs.DatePickerDialogFragment
 import com.aristidevs.syncotask.dialogs.TimePickerDialogFragment
+import com.aristidevs.syncotask.objects.Task
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -42,16 +45,17 @@ class activity_createTask : AppCompatActivity() {
     lateinit var btnHighPriority: LinearLayout
     lateinit var btnMaxPriority: LinearLayout
 
-    // Lista para almacenar newEditText
     private val newEditTextList = mutableListOf<EditText>()
     private val newTagsList = mutableListOf<TextView>()
+    private lateinit var dbRef : DatabaseReference
 
     init {
-        lvlPriority = ""
+        lvlPriority = "Medium Priority"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_task)
+
 
         //region Inicializar metodos
         btnBack = findViewById<ImageView>(R.id.btnBack)
@@ -150,25 +154,36 @@ class activity_createTask : AppCompatActivity() {
 
         btnCreateTask = findViewById<Button>(R.id.btnCreateTask)
         btnCreateTask.setOnClickListener {
-            val title = findViewById<EditText>(R.id.textTitle).text.toString()
-            val date = findViewById<EditText>(R.id.textDate).text.toString()
-            val startTime = findViewById<EditText>(R.id.textStartTime).text.toString()
-            val endTime = findViewById<EditText>(R.id.textEndTime).text.toString()
-            val description = findViewById<EditText>(R.id.textDescription).text.toString()
-            val subTasksList = newEditTextList
-            val tagsList = newTagsList
-            val priority = lvlPriority
+            val subTasks = newEditTextList.map { it.text.toString() }.toMutableList()
+            val tags = newTagsList.map { it.text.toString() }.toMutableList()
+            val task = Task(
+                title = findViewById<EditText>(R.id.textTitle).text.toString(),
+                date = findViewById<EditText>(R.id.textDate).text.toString(),
+                startTime = findViewById<EditText>(R.id.textStartTime).text.toString(),
+                endTime = findViewById<EditText>(R.id.textEndTime).text.toString(),
+                description = findViewById<EditText>(R.id.textDescription).text.toString(),
+                subTasks = subTasks,
+                tags = tags,
+                priority = lvlPriority
+            )
 
             if (title.isEmpty()) {
                 showToast("Por favor, ingrese un título.")
-            } else if (date.isEmpty()) {
+            } else if (task.date.isEmpty()) {
                 showToast("Por favor, ingrese una fecha.")
-            } else if (startTime.isEmpty()) {
+            } else if (task.startTime.isEmpty()) {
                 showToast("Por favor, ingrese una hora de inicio.")
-            } else if (endTime.isEmpty()) {
+            } else if (task.endTime.isEmpty()) {
                 showToast("Por favor, ingrese una hora de finalización.")
             } else {
-
+                dbRef = FirebaseDatabase.getInstance().getReference("Tasks")
+                val empId = dbRef.push().key!!
+                dbRef.child(empId).setValue(task)
+                    .addOnCompleteListener{
+                        Toast.makeText(this,"Datos subidos", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener{ err ->
+                        Toast.makeText(this,"Error ${err.message}", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
         //endregion

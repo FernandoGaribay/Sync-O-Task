@@ -27,10 +27,18 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
 
     private fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.listTasksRecycler)
-        val adapter = listTasksAdapter(TaskProvider.listTasks)
+        val taskProvider = TaskProvider()
+        val adapter = listTasksAdapter(taskProvider.listTasks)
+
         adapter.setOnTaskClickListener(this)
+
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
+
+        // Registra el callback para actualizar el adaptador cuando los datos cambien
+        taskProvider.setOnDataChangedCallback {
+            adapter.notifyDataSetChanged()
+        }
     }
 
     override fun onItemClick(task: Task) {
