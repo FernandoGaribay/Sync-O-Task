@@ -14,13 +14,13 @@
     <color name="dark_yellow">#F3BE53</color>
 
     <color name="green">#8BE175</color>
-    <color name="yellow">#FFE876</color>
+    <color name="yellow">#FFE042</color>
     <color name="red">#FF7374</color>
-    <color name="purple">#BC71CB</color>
-    <color name="light_green">#BBE9AF</color>
-    <color name="light_yellow">#FFF2C9</color>
-    <color name="light_red">#FFCFD1</color>
-    <color name="light_purple">#F9DBFF</color>
+    <color name="purple">#E784FB</color>
+    <color name="light_green">#DEFFD6</color>
+    <color name="light_yellow">#FFF8E1</color>
+    <color name="light_red">#FFE4E5</color>
+    <color name="light_purple">#FBE8FF</color>
 
     <color name="transparent">#00000000</color>
 </resources>

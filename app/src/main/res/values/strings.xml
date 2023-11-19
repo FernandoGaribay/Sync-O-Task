@@ -30,13 +30,20 @@
     <string name="createTask_lblStartTime">Start Time</string>
     <string name="createTask_lblEndTime">End Time</string>
     <string name="createTask_lblDescription">Description</string>
+    <string name="createTask_textDescription">Task description</string>
     <string name="createTask_lblSubTasks">Sub-Tasks</string>
+    <string name="createTask_lblNewTasks">A New Sub-Task</string>
     <string name="createTask_lblTags">Tags</string>
     <string name="createTask_lblPriority">Priority</string>
     <string name="createTask_lblMaxPriority">Max</string>
     <string name="createTask_lblHighPriority">High</string>
     <string name="createTask_lblMediumPriority">Medium</string>
     <string name="createTask_lblLowPriority">Low</string>
+    <string name="createTask_dialog_create_tag">Submit</string>
+    <string name="createTask_dialog_cancel_tag">Cancel</string>
+    <string name="createTask_dialog_lblCreate_tag">Create Tag</string>
+    <string name="createTask_btnCreate_Task">Create Task</string>
+    <string name="createTask_dialog_name_tag">Tag name</string>
 
     <!--Activity List Of Tasks Strings-->
     <string name="listTasks_lblMyTasks">My Tasks</string>

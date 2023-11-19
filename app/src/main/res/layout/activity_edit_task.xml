@@ -274,15 +274,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:background="@drawable/bc_tags"
-                    android:text="CETI"
-                    android:theme="@style/Tag.createTask.SyncOTask" />
+                    android:text="CETI" />
+
 
                 <TextView
+                    android:id="@+id/btnAddTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bc_add_tags"
-                    android:theme="@style/Tag.createTask.SyncOTask" />
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/bc_add_tags" />
 
               </LinearLayout>
 
