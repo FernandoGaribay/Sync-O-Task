@@ -9,7 +9,7 @@ import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
 import com.aristidevs.syncotask.objects.Task
 
-class listTasksAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<listTasksAdapter.ViewHolder>() {
+class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<listTasksAdapter.ViewHolder>() {
 
     private lateinit var clickListener: onTaskClickListener
 
@@ -28,6 +28,11 @@ class listTasksAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int = listTasks.size
+
+    fun updateData(newList: List<Task>) {
+        listTasks = newList
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
 

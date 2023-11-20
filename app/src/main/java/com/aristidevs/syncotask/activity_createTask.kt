@@ -164,7 +164,8 @@ class activity_createTask : AppCompatActivity() {
                 description = findViewById<EditText>(R.id.textDescription).text.toString(),
                 subTasks = subTasks,
                 tags = tags,
-                priority = lvlPriority
+                priority = lvlPriority,
+                state = false
             )
 
             if (title.isEmpty()) {
@@ -184,6 +185,7 @@ class activity_createTask : AppCompatActivity() {
                     }.addOnFailureListener{ err ->
                         Toast.makeText(this,"Error ${err.message}", Toast.LENGTH_SHORT).show()
                     }
+                finish()
             }
         }
         //endregion

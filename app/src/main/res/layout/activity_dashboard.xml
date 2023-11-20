@@ -206,7 +206,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/tasks_maxTasks"
+                                android:id="@+id/text_maxTasks"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
@@ -264,7 +264,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/tasks_highTasks"
+                                android:id="@+id/text_highTasks"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
@@ -322,7 +322,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/tasks_mediumTasks"
+                                android:id="@+id/text_mediumTasks"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
@@ -380,7 +380,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/tasks_lowTasks"
+                                android:id="@+id/text_lowTasks"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"

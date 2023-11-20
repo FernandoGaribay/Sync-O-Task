@@ -10,7 +10,8 @@ data class Task(
     val description: String,
     val subTasks: MutableList<String> = mutableListOf(),
     val tags: MutableList<String> = mutableListOf(),
-    val priority: String
+    val priority: String,
+    val state: Boolean
 ) {
-    constructor() : this("", "", "", "", "", mutableListOf(), mutableListOf(), "")
+    constructor() : this("", "", "", "", "", mutableListOf(), mutableListOf(), "", false)
 }

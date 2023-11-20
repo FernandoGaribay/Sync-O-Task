@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.objects.Task
 
-class dashboardAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<dashboardAdapter.ViewHolder>() {
+class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<dashboardAdapter.ViewHolder>() {
 
     //val images = intArrayOf(R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground)
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
@@ -24,6 +24,10 @@ class dashboardAdapter(private val listTasks: List<Task>): RecyclerView.Adapter<
     // Regresa el tamaño de la lista ( para mostrar todas los elementos)
     override fun getItemCount(): Int = listTasks.size
 
+    fun updateData(newList: List<Task>) {
+        listTasks = newList
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
