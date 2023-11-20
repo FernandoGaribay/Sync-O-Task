@@ -3,6 +3,7 @@
     <!-- Colores Base-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightgray_white">#FAFCFE</color>
     <color name="light_gray">#CACACA</color>
     <color name="dark_gray">#313131</color>
 

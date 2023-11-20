@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
@@ -12,24 +13,43 @@ import com.aristidevs.syncotask.objects.Task
 class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<dashboardAdapter.ViewHolder>() {
 
     private lateinit var clickListener: onTaskClickListener
+    private val VIEW_TYPE_WITH_TASKS = 1
+    private val VIEW_TYPE_NO_TASKS = 2
     //val images = intArrayOf(R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground)
 
     fun setOnTaskClickListener(listener: onTaskClickListener) {
         this.clickListener = listener
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_dashboard_task, viewGroup, false)
-        return ViewHolder(v)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        return when (viewType) {
+            VIEW_TYPE_WITH_TASKS -> {
+                val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_dashboard_task, viewGroup, false)
+                ViewHolder(v)
+            }
+            VIEW_TYPE_NO_TASKS -> {
+                val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_dashboard_notask, viewGroup, false)
+                ViewHolder(v)
+            }
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        val item = listTasks[i]
-        viewHolder.render(item)
+        if (listTasks.isNotEmpty()) {
+            val item = listTasks[i]
+            viewHolder.render(item)
+        }
     }
 
-    // Regresa el tamaño de la lista ( para mostrar todas los elementos)
-    override fun getItemCount(): Int = listTasks.size
+    override fun getItemCount(): Int {
+        return if (listTasks.isEmpty()) 1 else listTasks.size
+    }
+
+    // Definir el tipo de vista
+    override fun getItemViewType(position: Int): Int {
+        return if (listTasks.isEmpty()) VIEW_TYPE_NO_TASKS else VIEW_TYPE_WITH_TASKS
+    }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
 

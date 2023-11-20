@@ -100,9 +100,14 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         }
     }
 
-    private fun updateInProccess(filteredTasksDate : List<Task>){
-        adapter = dashboardAdapter(filteredTasksDate)
-        adapter.setOnTaskClickListener(this)
+    private fun updateInProccess(filteredTasksDate: List<Task>) {
+        if (filteredTasksDate.isEmpty()) {
+            adapter = dashboardAdapter(emptyList())
+        } else {
+            adapter = dashboardAdapter(filteredTasksDate)
+            adapter.setOnTaskClickListener(this)
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
     }
