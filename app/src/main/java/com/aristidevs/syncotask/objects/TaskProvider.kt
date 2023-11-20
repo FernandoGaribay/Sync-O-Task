@@ -35,7 +35,7 @@ class TaskProvider {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Manejar errores aquí
+                // Manejar errores
             }
         })
     }

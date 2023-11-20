@@ -6,6 +6,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -14,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
 import com.aristidevs.syncotask.objects.Task
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<listTasksAdapter.ViewHolder>() {
 
@@ -80,7 +84,7 @@ class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
                 addTag("/*0No Tags/*0")
             }
 
-            time.text = task.startTime + " : " + task.endTime
+            time.text = task.startTime + " - " + task.endTime
             date.text = task.date
         }
 
@@ -92,6 +96,7 @@ class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
             }
         }
 
+        //region metodos addTag()
         private fun addTag(tagName: String) {
             val newTag = createNewTag(tagName)
             layoutTags.addView(newTag)
@@ -121,10 +126,12 @@ class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
 
             if(tagName == "/*0No Tags/*0"){
                 newTag.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(itemView.context, R.color.light_gray))
-                newTag.text = "TIP: Add tags for better organization."
+                newTag.text = "Add tags for better organization."
             }
 
             return newTag
         }
+        //endregion
+
     }
 }

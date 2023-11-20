@@ -15,6 +15,7 @@ import com.aristidevs.syncotask.activity_createTask
 import com.aristidevs.syncotask.activity_list_tasks
 import com.aristidevs.syncotask.adapters.dashboardAdapter
 import com.aristidevs.syncotask.adapters.listTasksAdapter
+import com.aristidevs.syncotask.interfaces.onTaskClickListener
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,7 +24,7 @@ import java.util.Date
 import java.util.Locale
 
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity(), onTaskClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var taskProvider: TaskProvider
@@ -101,6 +102,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun updateInProccess(filteredTasksDate : List<Task>){
         adapter = dashboardAdapter(filteredTasksDate)
+        adapter.setOnTaskClickListener(this)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
     }
@@ -136,6 +138,10 @@ class DashboardActivity : AppCompatActivity() {
     private fun getCurrentDate(): String {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return sdf.format(Date())
+    }
+
+    override fun onItemClick(task: Task) {
+        Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
     }
 
     private fun showToast(message: String) {
