@@ -311,7 +311,7 @@ class activity_createTask : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        val marginRight = resources.getDimensionPixelSize(R.dimen.tag_margin_right)
+        val marginRight = resources.getDimensionPixelSize(R.dimen.createTag_margin_right)
         params.setMargins(0, 0, marginRight, 0)
 
         // Configuración del TextView
@@ -323,10 +323,10 @@ class activity_createTask : AppCompatActivity() {
         newTag.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
 
         newTag.setPadding(
-            resources.getDimensionPixelSize(R.dimen.tag_padding_left),
-            resources.getDimensionPixelSize(R.dimen.tag_padding_top),
-            resources.getDimensionPixelSize(R.dimen.tag_padding_right),
-            resources.getDimensionPixelSize(R.dimen.tag_padding_bottom)
+            resources.getDimensionPixelSize(R.dimen.createTag_padding_left),
+            resources.getDimensionPixelSize(R.dimen.createTag_padding_top),
+            resources.getDimensionPixelSize(R.dimen.createTag_padding_right),
+            resources.getDimensionPixelSize(R.dimen.createTag_padding_bottom)
         )
 
         return newTag
