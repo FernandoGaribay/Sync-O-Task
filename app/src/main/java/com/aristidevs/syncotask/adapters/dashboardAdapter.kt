@@ -15,7 +15,6 @@ class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
     private lateinit var clickListener: onTaskClickListener
     private val VIEW_TYPE_WITH_TASKS = 1
     private val VIEW_TYPE_NO_TASKS = 2
-    //val images = intArrayOf(R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground)
 
     fun setOnTaskClickListener(listener: onTaskClickListener) {
         this.clickListener = listener
@@ -51,7 +50,7 @@ class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
         return if (listTasks.isEmpty()) VIEW_TYPE_NO_TASKS else VIEW_TYPE_WITH_TASKS
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         val title = itemView.findViewById<TextView>(R.id.card_title)
         val priotiry = itemView.findViewById<TextView>(R.id.card_priority)
@@ -66,12 +65,15 @@ class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
         override fun onClick(v: View?) {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                val clickedTask = listTasks[position]
-                clickListener.onItemClick(clickedTask)
+                // Verifica si la vista es de tipo VIEW_TYPE_WITH_TASKS antes de intentar obtener la tarea
+                if (getItemViewType(position) == VIEW_TYPE_WITH_TASKS) {
+                    val clickedTask = listTasks[position]
+                    clickListener.onItemClick(clickedTask)
+                }
             }
         }
 
-        fun render(task: Task){
+        fun render(task: Task) {
             title.text = task.title
             priotiry.text = task.priority
             description.text = task.description

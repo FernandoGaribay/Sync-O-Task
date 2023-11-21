@@ -50,6 +50,10 @@
     <string name="listTasks_lblOverdue">Overdue</string>
     <string name="listTasks_lblToDo">To Do</string>
     <string name="listTasks_lblOpen">Open</string>
+    <string name="listTasks_lblAllTasks">All Tasks</string>
+    <string name="listTasks_lblOverdueTasks">Overdue</string>
+    <string name="listTasks_lblToDoTasks">To Do</string>
+    <string name="listTasks_lblOpenTasks">Open</string>
     <string name="listTasks_lblDueToday">Due Today</string>
     <string name="listTasks_lblSortBy">Sort By</string>
 
