@@ -107,9 +107,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:textColor="@color/white"
                     android:clickable="false"
                     android:focusable="false"
+                    android:theme="@style/Date.createTask.SyncOTask"
+                    android:drawableTint="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>

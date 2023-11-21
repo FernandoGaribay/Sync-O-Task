@@ -11,7 +11,7 @@ import com.aristidevs.syncotask.R
 class EditTaskDialog(private val context: Context) {
 
     fun showEditTaskDialog() {
-        val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_create_tag, null)
+        val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_task, null)
         val mBuilder = AlertDialog.Builder(context)
             .setView(mDialogView)
         val mAlertDialog = mBuilder.show()

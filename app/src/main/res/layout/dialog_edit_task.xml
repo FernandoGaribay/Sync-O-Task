@@ -1,6 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="600dp">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:background="@color/dark_blue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/pencil_white"
+                    app:layout_constraintBottom_toTopOf="@+id/textView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/editTask_lblCreateTask"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/view5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="20dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/editTask_lblTitle"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/textTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/editTask_lblDate"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/textDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:theme="@style/Date.createTask.SyncOTask"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/editTask_lblStartTime"
+                                            android:textColor="@color/dark_blue"
+                                            android:textSize="20sp"
+                                            android:textStyle="bold" />
+
+                                        <EditText
+                                            android:id="@+id/textStartTime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:clickable="false"
+                                            android:focusable="false"
+                                            android:inputType="time"
+                                            android:textSize="15sp"
+                                            android:theme="@style/EditTime.createTask.SyncOTask" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/editTask_lblEndTime"
+                                            android:textColor="@color/dark_blue"
+                                            android:textSize="20sp"
+                                            android:textStyle="bold" />
+
+                                        <EditText
+                                            android:id="@+id/textEndTime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:clickable="false"
+                                            android:focusable="false"
+                                            android:inputType="time"
+                                            android:textSize="15sp"
+                                            android:theme="@style/EditTime.createTask.SyncOTask" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/editTask_lblDescription"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <MultiAutoCompleteTextView
+                                    android:id="@+id/textDescription"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/editTask_lblSubTasks"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:id="@+id/linearSubTasks"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <EditText
+                                        android:id="@+id/textCreateSubTask"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/createTask_lblNewTasks"
+                                        android:imeOptions="actionSend"
+                                        android:inputType="text"
+                                        android:textSize="15sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/createTask_lblTags"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp">
+
+                                    <HorizontalScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <LinearLayout
+                                            android:id="@+id/linearTags"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/btnAddTag"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/bc_add_tags"
+                                                android:paddingLeft="15dp"
+                                                android:paddingTop="6dp"
+                                                android:paddingRight="15dp"
+                                                android:paddingBottom="6dp" />
+
+                                        </LinearLayout>
+
+                                    </HorizontalScrollView>
+
+                                </ScrollView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/createTask_lblPriority"
+                                    android:textColor="@color/dark_blue"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:id="@+id/btnLowPriority"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bc_btnpriority"
+                                        android:backgroundTint="@color/light_green"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:paddingTop="7dp"
+                                            android:paddingBottom="7dp"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/low" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="2"
+                                            android:paddingTop="10dp"
+                                            android:paddingBottom="10dp"
+                                            android:text="@string/editTask_lblLowPriority"
+                                            android:textColor="@color/white"
+                                            android:textSize="10dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/btnMediumPriority"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bc_btnpriority"
+                                        android:backgroundTint="@color/light_yellow"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:paddingTop="7dp"
+                                            android:paddingBottom="7dp"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/medium" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="2"
+                                            android:paddingTop="10dp"
+                                            android:paddingBottom="10dp"
+                                            android:text="@string/editTask_lblMediumPriority"
+                                            android:textColor="@color/white"
+                                            android:textSize="10dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/btnHighPriority"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bc_btnpriority"
+                                        android:backgroundTint="@color/light_red"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:paddingTop="7dp"
+                                            android:paddingBottom="7dp"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/high" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="2"
+                                            android:paddingTop="10dp"
+                                            android:paddingBottom="10dp"
+                                            android:text="@string/editTask_lblHighPriority"
+                                            android:textColor="@color/white"
+                                            android:textSize="10dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/btnMaxPriority"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bc_btnpriority"
+                                        android:backgroundTint="@color/light_purple"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:paddingTop="7dp"
+                                            android:paddingBottom="7dp"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/max" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="2"
+                                            android:paddingTop="10dp"
+                                            android:paddingBottom="10dp"
+                                            android:text="@string/editTask_lblMaxPriority"
+                                            android:textColor="@color/white"
+                                            android:textSize="10dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/btnCreateTask"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_weight="1"
+                                        android:text="@string/editTask_btnEditTask"
+                                        android:textSize="20sp"
+                                        android:theme="@style/Buttons.SyncOTask" />
+
+                                    <Button
+                                        android:id="@+id/btnDeleteTask"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_weight="1"
+                                        android:backgroundTint="@color/red"
+                                        android:text="@string/editTask_btnDeleteTask"
+                                        android:textSize="20sp"
+                                        android:theme="@style/Buttons.SyncOTask" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

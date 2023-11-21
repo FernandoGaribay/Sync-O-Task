@@ -29,6 +29,11 @@
     </style>
 
     <!-- Controles Activity Create Task -->
+    <style name="Date.createTask.SyncOTask" parent="SyncOTask" >
+        <item name="android:drawableEnd">@drawable/ic_down_list</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="EditTime.createTask.SyncOTask" parent="SyncOTask" >
         <item name="android:drawableEnd">@drawable/ic_down_list</item>
         <item name="android:textColor">@color/black</item>
