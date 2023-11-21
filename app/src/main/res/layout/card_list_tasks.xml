@@ -106,7 +106,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Terminar Boceto de UI."
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        app:buttonTint="@color/bc_checkbox"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"/>
                 </LinearLayout>
 
                 <LinearLayout
