@@ -331,8 +331,6 @@ class activity_createTask : AppCompatActivity() {
 
         return newTag
     }
-
-
     //endregion
 
     private fun showToast(message: String) {

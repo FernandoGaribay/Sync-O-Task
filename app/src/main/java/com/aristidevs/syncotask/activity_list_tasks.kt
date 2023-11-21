@@ -86,8 +86,8 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
     }
 
     override fun onItemClick(task: Task) {
-        val createTagDialog = EditTaskDialog(this)
-        createTagDialog.showEditTaskDialog()
+        val editTaskDialog = EditTaskDialog(this, supportFragmentManager)
+        editTaskDialog.showEditTaskDialog(task)
         //Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
     }
 

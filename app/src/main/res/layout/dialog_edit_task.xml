@@ -127,6 +127,8 @@
                                     android:id="@+id/textDate"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:clickable="false"
+                                    android:focusable="false"
                                     android:theme="@style/Date.createTask.SyncOTask"
                                     android:textSize="15sp" />
                             </LinearLayout>
@@ -250,11 +252,13 @@
                                         android:inputType="text"
                                         android:textSize="15sp" />
 
+                                    <!--
                                     <EditText
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:textSize="15sp" />
+                                    -->
                                 </LinearLayout>
 
 
