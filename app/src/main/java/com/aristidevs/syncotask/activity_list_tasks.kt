@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.adapters.listTasksAdapter
+import com.aristidevs.syncotask.dialogs.CreateTagDialog
+import com.aristidevs.syncotask.dialogs.EditTaskDialog
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
@@ -84,7 +86,9 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
     }
 
     override fun onItemClick(task: Task) {
-        Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
+        val createTagDialog = EditTaskDialog(this)
+        createTagDialog.showEditTaskDialog()
+        //Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
     }
 
     //region Metodos filtrado de fechas
