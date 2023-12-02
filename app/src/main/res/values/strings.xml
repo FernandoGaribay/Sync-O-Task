@@ -21,7 +21,7 @@
     <string name="dashboard_myTasks">My Tasks</string>
     <string name="dashboard_myNotes">My Notes</string>
     <string name="dashboard_pomodoro">Pomodoro</string>
-    <string name="dashboard_calendar">Calendar</string>
+    <string name="dashboard_calculator">Calculadora</string>
 
     <!--Activity Create Task Strings-->
     <string name="createTask_lblCreateTask">CREATE NEW TASK</string>
