@@ -111,6 +111,7 @@
                     android:focusable="false"
                     android:theme="@style/Date.createTask.SyncOTask"
                     android:drawableTint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>
@@ -168,6 +169,7 @@
                             android:textSize="15sp"
                             android:clickable="false"
                             android:focusable="false"
+                            android:hint="00:00 a.m"
                             android:theme="@style/EditTime.createTask.SyncOTask" />
                     </LinearLayout>
 
@@ -181,7 +183,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/createTask_lblStartTime"
+                            android:text="@string/createTask_lblEndTime"
                             android:textAlignment="textStart"
                             android:textColor="@color/dark_blue"
                             android:textSize="20sp"
@@ -195,6 +197,7 @@
                             android:textSize="15sp"
                             android:clickable="false"
                             android:focusable="false"
+                            android:hint="00:00 a.m"
                             android:theme="@style/EditTime.createTask.SyncOTask" />
                     </LinearLayout>
                 </LinearLayout>
@@ -217,6 +220,7 @@
                         android:id="@+id/textDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/gray"
                         android:hint="@string/createTask_textDescription"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -241,6 +245,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionSend"
+                        android:textColorHint="@color/gray"
                         android:inputType="text"
                         android:hint="@string/createTask_lblNewTasks"
                         android:textSize="15sp" />

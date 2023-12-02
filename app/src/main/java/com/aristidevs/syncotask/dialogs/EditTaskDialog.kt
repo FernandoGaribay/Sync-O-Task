@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.objects.Task
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -25,6 +26,7 @@ import java.util.Locale
 class EditTaskDialog(private val context: Context, private val fragmentManager: FragmentManager) {
 
     private lateinit var mAlertDialog: AlertDialog
+    private lateinit var taskId: String
     private lateinit var title: EditText
     private lateinit var date: EditText
     private lateinit var startTime: EditText
@@ -33,6 +35,7 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
     private lateinit var linearSubTasks: LinearLayout
     private lateinit var textCreateSubTask: EditText
     private lateinit var linearTags: LinearLayout
+    private lateinit var lvlNewPriority: String
     private lateinit var btnAddTag: TextView
     private lateinit var btnLowPriority: LinearLayout
     private lateinit var btnMediumPriority: LinearLayout
@@ -43,7 +46,6 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
 
     private val newEditTextList = mutableListOf<EditText>()
     private val newTagsList = mutableListOf<TextView>()
-
     fun showEditTaskDialog(task: Task) {
         initViews(task)
         initListeners(task)
@@ -54,6 +56,7 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         val mBuilder = AlertDialog.Builder(context).setView(mDialogView)
         mAlertDialog = mBuilder.show()
 
+        taskId = task.taskId!!
         title = mDialogView.findViewById(R.id.textTitle)
         date = mDialogView.findViewById(R.id.textDate)
         startTime = mDialogView.findViewById(R.id.textStartTime)
@@ -80,18 +83,22 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         endTime.setText(task.endTime)
         description.setText(task.description)
 
-        if(task.priority == "Low Priority"){
+        if (task.priority == "Low Priority") {
             btnLowPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.green))
-        } else if(task.priority == "Medium Priority"){
+            lvlNewPriority = "Low Priority"
+        } else if (task.priority == "Medium Priority") {
             btnMediumPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.yellow))
-        } else if(task.priority == "High Priority"){
+            lvlNewPriority = "Medium Priority"
+        } else if (task.priority == "High Priority") {
             btnHighPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.red))
-        } else if(task.priority == "Max Priority"){
+            lvlNewPriority = "High Priority"
+        } else if (task.priority == "Max Priority") {
             btnMaxPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.purple))
+            lvlNewPriority = "Max Priority"
         }
 
         for (tag in task.tags) {
@@ -102,7 +109,7 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         }
     }
 
-    private fun initListeners(task: Task){
+    private fun initListeners(task: Task) {
 
         date.setOnClickListener {
             showDatePickerDialog(date)
@@ -124,51 +131,111 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         }
 
         btnLowPriority.setOnClickListener {
-            task.priority = "Low Priority"
+            lvlNewPriority = "Low Priority"
             btnLowPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.green))
             btnMediumPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_yellow))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_yellow
+                    )
+                )
             btnHighPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_red))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_red
+                    )
+                )
             btnMaxPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_purple))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_purple
+                    )
+                )
         }
 
         btnMediumPriority.setOnClickListener {
-            task.priority = "Medium Priority"
+            lvlNewPriority = "Medium Priority"
             btnMediumPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.yellow))
             btnLowPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_green))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_green
+                    )
+                )
             btnHighPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_red))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_red
+                    )
+                )
             btnMaxPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_purple))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_purple
+                    )
+                )
         }
 
         btnHighPriority.setOnClickListener {
-            task.priority = "High Priority"
+            lvlNewPriority = "High Priority"
             btnHighPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.red))
             btnMediumPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_yellow))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_yellow
+                    )
+                )
             btnLowPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_green))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_green
+                    )
+                )
             btnMaxPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_purple))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_purple
+                    )
+                )
         }
 
         btnMaxPriority.setOnClickListener {
-            task.priority = "Max Priority"
+            lvlNewPriority = "Max Priority"
             btnMaxPriority.backgroundTintList =
                 ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.purple))
             btnMediumPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_yellow))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_yellow
+                    )
+                )
             btnHighPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_red))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_red
+                    )
+                )
             btnLowPriority.backgroundTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(mAlertDialog.context, R.color.light_green))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        mAlertDialog.context,
+                        R.color.light_green
+                    )
+                )
         }
 
         textCreateSubTask.setOnEditorActionListener { _, actionId, _ ->
@@ -183,7 +250,67 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         }
 
         btnEditTask.setOnClickListener {
-            Toast.makeText(mAlertDialog.context, task.priority, Toast.LENGTH_SHORT).show()
+
+            val subTasks = newEditTextList.map { it.text.toString() }.toMutableList()
+            val tags = newTagsList.map { it.text.toString() }.toMutableList()
+            val task = Task(
+                null,
+                title.text.toString(),
+                date.text.toString(),
+                startTime.text.toString(),
+                endTime.text.toString(),
+                description.text.toString(),
+                subTasks,
+                tags,
+                lvlNewPriority,
+                state = false
+            )
+
+            if (title.text.isEmpty()) {
+                showToast("Por favor, ingrese un título.")
+            } else if (task.date.isEmpty()) {
+                showToast("Por favor, ingrese una fecha.")
+            } else if (task.startTime.isEmpty()) {
+                showToast("Por favor, ingrese una hora de inicio.")
+            } else if (task.endTime.isEmpty()) {
+                showToast("Por favor, ingrese una hora de finalización.")
+            } else {
+                val dbRef = FirebaseDatabase.getInstance().getReference("Tasks").child(taskId)
+                dbRef.setValue(task).addOnCompleteListener { taskResult ->
+                    if (taskResult.isSuccessful) {
+                        showToast("Tarea: " + task.title + " actualizada.")
+                    } else {
+                        // Manejar el error
+                        showToast("Error al actualizar la tarea: " + taskResult.exception?.message)
+                    }
+                }
+                mAlertDialog.dismiss()
+            }
+        }
+
+        btnDeleteTask.setOnClickListener {
+            val subTasks = newEditTextList.map { it.text.toString() }.toMutableList()
+            val tags = newTagsList.map { it.text.toString() }.toMutableList()
+            val task = Task(
+                null,
+                title.text.toString(),
+                date.text.toString(),
+                startTime.text.toString(),
+                endTime.text.toString(),
+                description.text.toString(),
+                subTasks,
+                tags,
+                lvlNewPriority,
+                state = false
+            )
+            val dbRef = FirebaseDatabase.getInstance().getReference("Tasks").child(taskId)
+            val taskDeleted = dbRef.removeValue()
+            taskDeleted.addOnSuccessListener {
+                showToast("Tarea: \"" + task.title + "\" eliminada.")
+            }.addOnFailureListener{error ->
+                showToast("Hubo un error al eliminar la tarea: \"" + task.title + "\"")
+            }
+            mAlertDialog.dismiss()
         }
     }
 
@@ -332,5 +459,9 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
                 linearTags.removeView(tag)
             }
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(mAlertDialog.context, message, Toast.LENGTH_SHORT).show()
     }
 }

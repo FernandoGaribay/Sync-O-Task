@@ -27,8 +27,13 @@ class TaskProvider {
                 listTasks.clear()
                 if (snapshot.exists()) {
                     for (taskSnap in snapshot.children) {
+                        val taskId = taskSnap.key // Obtener el ID del objeto
                         val taskData = taskSnap.getValue(Task::class.java)
-                        listTasks.add(taskData!!)
+
+                        taskData?.taskId = taskId!!
+                        if (taskData != null) {
+                            listTasks.add(taskData)
+                        }
                     }
                 }
                 onDataChangeCallback?.invoke()

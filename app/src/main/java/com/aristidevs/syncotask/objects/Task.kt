@@ -3,6 +3,7 @@ package com.aristidevs.syncotask.objects
 import java.util.Date
 
 data class Task(
+    var taskId: String? = null,
     var title: String,
     var date: String,
     var startTime: String,
@@ -13,5 +14,5 @@ data class Task(
     var priority: String,
     var state: Boolean
 ) {
-    constructor() : this("", "", "", "", "", mutableListOf(), mutableListOf(), "", false)
+    constructor() : this(null, "", "", "", "", "", mutableListOf(), mutableListOf(), "", false)
 }
