@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
@@ -52,6 +54,7 @@ class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
+        private val cardView = itemView.findViewById<CardView>(R.id.card_view)
         val title = itemView.findViewById<TextView>(R.id.card_title)
         val priotiry = itemView.findViewById<TextView>(R.id.card_priority)
         val description = itemView.findViewById<TextView>(R.id.card_description)
@@ -79,6 +82,14 @@ class dashboardAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
             description.text = task.description
             startTime.text = task.startTime
             date.text = task.date
+
+            // Cambia el color de fondo del CardView segun la prioridad
+            when (task.priority) {
+                "Low Priority" -> cardView.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.light_green))
+                "Medium Priority" -> cardView.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.light_yellow))
+                "High Priority" -> cardView.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.light_red))
+                "Max Priority" -> cardView.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.light_purple))
+            }
         }
     }
 }
