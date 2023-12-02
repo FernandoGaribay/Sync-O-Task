@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -40,10 +41,10 @@ class activity_createTask : AppCompatActivity() {
     lateinit var textDate: EditText
     lateinit var textStartTime: EditText
     lateinit var textEndTime: EditText
-    lateinit var btnLowPriority: LinearLayout
-    lateinit var btnMediumPriority: LinearLayout
-    lateinit var btnHighPriority: LinearLayout
-    lateinit var btnMaxPriority: LinearLayout
+    lateinit var btnLowPriority: RadioButton
+    lateinit var btnMediumPriority: RadioButton
+    lateinit var btnHighPriority: RadioButton
+    lateinit var btnMaxPriority: RadioButton
 
     private val newEditTextList = mutableListOf<EditText>()
     private val newTagsList = mutableListOf<TextView>()
@@ -100,7 +101,7 @@ class activity_createTask : AppCompatActivity() {
             }
         }
 
-        btnLowPriority = findViewById<LinearLayout>(R.id.btnLowPriority)
+        btnLowPriority = findViewById<RadioButton>(R.id.btnLowPriority)
         btnLowPriority.setOnClickListener {
             lvlPriority = "Low Priority"
             btnLowPriority.backgroundTintList =
@@ -113,7 +114,7 @@ class activity_createTask : AppCompatActivity() {
                 ColorStateList.valueOf(ContextCompat.getColor(this, R.color.light_purple))
         }
 
-        btnMediumPriority = findViewById<LinearLayout>(R.id.btnMediumPriority)
+        btnMediumPriority = findViewById<RadioButton>(R.id.btnMediumPriority)
         btnMediumPriority.setOnClickListener {
             lvlPriority = "Medium Priority"
             btnMediumPriority.backgroundTintList =
@@ -126,7 +127,7 @@ class activity_createTask : AppCompatActivity() {
                 ColorStateList.valueOf(ContextCompat.getColor(this, R.color.light_purple))
         }
 
-        btnHighPriority = findViewById<LinearLayout>(R.id.btnHighPriority)
+        btnHighPriority = findViewById<RadioButton>(R.id.btnHighPriority)
         btnHighPriority.setOnClickListener {
             lvlPriority = "High Priority"
             btnHighPriority.backgroundTintList =
@@ -139,7 +140,7 @@ class activity_createTask : AppCompatActivity() {
                 ColorStateList.valueOf(ContextCompat.getColor(this, R.color.light_purple))
         }
 
-        btnMaxPriority = findViewById<LinearLayout>(R.id.btnMaxPriority)
+        btnMaxPriority = findViewById<RadioButton>(R.id.btnMaxPriority)
         btnMaxPriority.setOnClickListener {
             lvlPriority = "Max Priority"
             btnMaxPriority.backgroundTintList =

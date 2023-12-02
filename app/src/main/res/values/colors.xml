@@ -11,11 +11,12 @@
     <!-- Colores UI-->
     <color name="background_color">#162938</color>
     <color name="dark_blue">#195C93</color>
-    <color name="dark_green">#78CB3F</color>
-    <color name="dark_red">#DA0000</color>
-    <color name="dark_yellow">#F3BE53</color>
+    <color name="dark_green">#42A100</color>
+    <color name="dark_red">#C30000</color>
+    <color name="dark_purple">#761C8F</color>
+    <color name="dark_yellow">#D89000</color>
 
-    <color name="green">#8BE175</color>
+    <color name="green">#90E47B</color>
     <color name="yellow">#FFE042</color>
     <color name="red">#FF7374</color>
     <color name="purple">#E784FB</color>

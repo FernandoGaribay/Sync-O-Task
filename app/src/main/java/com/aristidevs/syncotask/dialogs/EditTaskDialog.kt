@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -37,10 +38,10 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
     private lateinit var linearTags: LinearLayout
     private lateinit var lvlNewPriority: String
     private lateinit var btnAddTag: TextView
-    private lateinit var btnLowPriority: LinearLayout
-    private lateinit var btnMediumPriority: LinearLayout
-    private lateinit var btnHighPriority: LinearLayout
-    private lateinit var btnMaxPriority: LinearLayout
+    private lateinit var btnLowPriority: RadioButton
+    private lateinit var btnMediumPriority: RadioButton
+    private lateinit var btnHighPriority: RadioButton
+    private lateinit var btnMaxPriority: RadioButton
     private lateinit var btnEditTask: Button
     private lateinit var btnDeleteTask: Button
 
