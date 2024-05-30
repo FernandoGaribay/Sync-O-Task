@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.aristidevs.syncotask.ActivityMyNotes
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.activity_createTask
 import com.aristidevs.syncotask.activity_list_tasks
@@ -86,7 +87,11 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
 
     private fun setClickListeners() {
         btnMyTasks.setOnClickListener { showToast("My Tasks") }
-        btnMyNotes.setOnClickListener { showToast("My Notes") }
+        btnMyNotes.setOnClickListener {
+            val intent = Intent(this, ActivityMyNotes::class.java)
+            startActivity(intent)
+            finish() // Cierra el activity para que el usuario no pueda volver atrás
+        }
         btnPomodoro.setOnClickListener { showToast("Boton Pomodoro") }
         btnCalendar.setOnClickListener { showToast("Boton Calendar") }
         btnCreateTask.setOnClickListener {
