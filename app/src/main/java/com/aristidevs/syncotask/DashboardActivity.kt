@@ -1,11 +1,9 @@
 package com.aristidevs.syncotask.activity
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.ContextMenu
-import android.view.MenuItem
-import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -21,9 +19,10 @@ import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.activity_createTask
 import com.aristidevs.syncotask.activity_list_tasks
 import com.aristidevs.syncotask.adapters.dashboardAdapter
-import com.aristidevs.syncotask.adapters.listTasksAdapter
 import com.aristidevs.syncotask.dialogs.EditTaskDialog
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
+import com.aristidevs.syncotask.objects.DatabaseHelper
+import com.aristidevs.syncotask.objects.DatabaseManager
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,12 +56,44 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
     private lateinit var btnMediumPriority: CardView
     private lateinit var btnLowPriority: CardView
 
+    private lateinit var tasks: MutableList<Task>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+        DatabaseManager.initialize(this)
 
         initViews()
+
         setClickListeners() // updateInProccess() y updateTextsPriority()
+        taskProvider.getTasksData()
+
+    }
+
+    private fun saveFirestoreDataToSQLite() {
+        val db = DatabaseManager.getDatabase()
+        db.execSQL("delete from Tasks")
+        for (task in tasks) {
+            try {
+
+                val values = ContentValues().apply {
+                    put(DatabaseHelper.COLUMN_TITLE, task.title)
+                    put(DatabaseHelper.COLUMN_DATE, task.date)
+                    put(DatabaseHelper.COLUMN_DESCRIPTION, task.description)
+                    put(DatabaseHelper.COLUMN_START_TIME, task.startTime)
+                    put(DatabaseHelper.COLUMN_END_TIME, task.endTime)
+                    put(DatabaseHelper.COLUMN_PRIORITY, task.priority)
+                    put(DatabaseHelper.COLUMN_STATE, if (task.state) 1 else 0)
+                    put(DatabaseHelper.COLUMN_SUB_TASKS, task.subTasks.joinToString(","))
+                    put(DatabaseHelper.COLUMN_TAGS, task.tags.joinToString(","))
+                }
+
+                db.insert(DatabaseHelper.TABLE_TASKS, null, values)
+            } catch (e: Exception) {
+                Log.e("Dashboard", "Error al guardar datos en SQLite: ", e)
+            }
+        }
     }
 
     private fun initViews() {
@@ -111,8 +142,12 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         taskProvider.setOnDataChangedCallback {
             // Filtra las tareas que coinciden con las restricciones
             var filteredTasks = taskProvider.listTasks.toMutableList()
+
             filteredTasks = getFilteredTasksByDate(filteredTasks, getCurrentDate())
             filteredTasks = getFilteredTasksByState(filteredTasks)
+
+            tasks = taskProvider.listTasks.filter { it.state == false || it.state == true }.toMutableList()
+            saveFirestoreDataToSQLite()
 
             // Filtra las tareas que coinciden con la prioridad
             val filMaxPrio = getFilteredTasksByPriority("Max Priority")
@@ -124,6 +159,7 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
             updateInProccess(filteredTasks)
             updateTextsPriority(filMaxPrio, filHighPrio, filMediumPrio, filLowPrio)
         }
+
 
         btnMenu.setOnClickListener {
 
