@@ -7,6 +7,7 @@
     <color name="light_gray">#CACACA</color>
     <color name="gray">#AFAFAF</color>
     <color name="dark_gray">#313131</color>
+    <color name="transparent">#00000000</color>
 
     <!-- Colores UI-->
     <color name="background_color">#162938</color>
@@ -25,6 +26,12 @@
     <color name="light_red">#FFE4E5</color>
     <color name="light_purple">#FBE8FF</color>
 
-    <color name="transparent">#00000000</color>
+    <!-- Colores Notas-->
+    <color name="red_note">#FFAEAE</color>
+    <color name="blue_note">#AED8FF</color>
+    <color name="green_note">#B0FFAE</color>
+    <color name="yellow_note">#FFFEB0</color>
+    <color name="purple_note">#DBAEFF</color>
+
 
 </resources>

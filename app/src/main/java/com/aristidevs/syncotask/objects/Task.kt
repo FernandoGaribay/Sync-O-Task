@@ -1,7 +1,5 @@
 package com.aristidevs.syncotask.objects
 
-import java.util.Date
-
 data class Task(
     var taskId: String? = null,
     var title: String,
