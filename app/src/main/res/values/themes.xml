@@ -11,6 +11,14 @@
         <item name="android:backgroundTint">@color/dark_blue</item>
     </style>
 
+    <style name="ButtonFb.SyncOTask" parent="SyncOTask">
+        <item name="android:backgroundTint">#00F0FF</item>
+    </style>
+
+    <style name="ButtonG.SyncOTask" parent="SyncOTask">
+        <item name="android:backgroundTint">#BAED87</item>
+    </style>
+
     <!-- Controles Activity Login -->
     <style name="EditTextUser.Login.SyncOTask" parent="SyncOTask" >
         <item name="android:drawableTint">@color/light_gray</item>

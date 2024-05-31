@@ -130,12 +130,34 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:theme="@style/Buttons.SyncOTask"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="60dp"
                 android:text="@string/login_btnLogin"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:theme="@style/Buttons.SyncOTask" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageButton
+                    android:layout_width="172dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/facebook_icon"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_button_fb"
+                    android:theme="@style/ButtonFb.SyncOTask" />
+
+                <ImageButton
+                    android:layout_width="172dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_button_google"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/google_icon"
+                    android:theme="@style/ButtonG.SyncOTask" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
