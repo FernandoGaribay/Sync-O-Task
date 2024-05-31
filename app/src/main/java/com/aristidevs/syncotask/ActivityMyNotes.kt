@@ -23,7 +23,7 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
     private lateinit var btnMyNotes: LinearLayout
     private lateinit var btnPomodoro: LinearLayout
     private lateinit var btnCalendar: LinearLayout
-    private lateinit var btnCreateTask: FloatingActionButton
+    private lateinit var btnCreateNote: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
         btnMyNotes = findViewById(R.id.dashboard_btnMyNotes)
         btnPomodoro = findViewById(R.id.dashboard_btnPomodoro)
         btnCalendar = findViewById(R.id.dashboard_btnCalendar)
-        btnCreateTask = findViewById(R.id.btnCreateNote)
+        btnCreateNote = findViewById(R.id.btnCreateNote)
 
         recyclerView = findViewById(R.id.savedNotes)
     }
@@ -59,6 +59,10 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
         }
         btnCalendar.setOnClickListener {
 
+        }
+        btnCreateNote.setOnClickListener {
+            val intent = Intent(this, activity_createNote::class.java)
+            startActivity(intent)
         }
         notesProvider.setOnDataChangedCallback {
             // Filtra las tareas que coinciden con las restricciones
