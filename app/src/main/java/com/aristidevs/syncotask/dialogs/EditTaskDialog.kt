@@ -71,7 +71,7 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         btnMediumPriority = mDialogView.findViewById(R.id.btnMediumPriority)
         btnHighPriority = mDialogView.findViewById(R.id.btnHighPriority)
         btnMaxPriority = mDialogView.findViewById(R.id.btnMaxPriority)
-        btnEditTask = mDialogView.findViewById(R.id.btnCreateTask)
+        btnEditTask = mDialogView.findViewById(R.id.btnCreateNote)
         btnDeleteTask = mDialogView.findViewById(R.id.btnDeleteTask)
 
         initTextViews(task)

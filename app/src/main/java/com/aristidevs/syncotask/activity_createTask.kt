@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.util.TypedValue
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
@@ -16,7 +15,6 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.aristidevs.syncotask.dialogs.CreateTagDialog
 import com.aristidevs.syncotask.dialogs.DatePickerDialogFragment
@@ -153,7 +151,7 @@ class activity_createTask : AppCompatActivity() {
                 ColorStateList.valueOf(ContextCompat.getColor(this, R.color.light_green))
         }
 
-        btnCreateTask = findViewById<Button>(R.id.btnCreateTask)
+        btnCreateTask = findViewById<Button>(R.id.btnCreateNote)
         btnCreateTask.setOnClickListener {
             val subTasks = newEditTextList.map { it.text.toString() }.toMutableList()
             val tags = newTagsList.map { it.text.toString() }.toMutableList()

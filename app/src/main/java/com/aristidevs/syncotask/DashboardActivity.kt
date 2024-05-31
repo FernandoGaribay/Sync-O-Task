@@ -109,7 +109,7 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         btnMyNotes = findViewById(R.id.dashboard_btnMyNotes)
         btnPomodoro = findViewById(R.id.dashboard_btnPomodoro)
         btnCalendar = findViewById(R.id.dashboard_btnCalendar)
-        btnCreateTask = findViewById(R.id.btnCreateTask)
+        btnCreateTask = findViewById(R.id.btnCreateNote)
         btnMaxPriority = findViewById(R.id.btn_Tasks_MaxPriority)
         btnHighPriority = findViewById(R.id.btn_Tasks_HighPriority)
         btnMediumPriority = findViewById(R.id.btn_Tasks_MediumPriority)

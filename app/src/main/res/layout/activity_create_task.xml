@@ -417,7 +417,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/btnCreateTask"
+                android:id="@+id/btnCreateNote"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="@string/createTask_btnCreate_Task"
