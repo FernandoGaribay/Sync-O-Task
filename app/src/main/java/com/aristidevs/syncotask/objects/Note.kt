@@ -1,6 +1,6 @@
 package com.aristidevs.syncotask.objects
 
-data class Notes(
+data class Note(
     var noteId: String? = null,
     var title: String,
     var description: String,

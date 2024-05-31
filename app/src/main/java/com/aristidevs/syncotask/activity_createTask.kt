@@ -151,7 +151,7 @@ class activity_createTask : AppCompatActivity() {
                 ColorStateList.valueOf(ContextCompat.getColor(this, R.color.light_green))
         }
 
-        btnCreateTask = findViewById<Button>(R.id.btnCreateNote)
+        btnCreateTask = findViewById<Button>(R.id.btnCreateTask)
         btnCreateTask.setOnClickListener {
             val subTasks = newEditTextList.map { it.text.toString() }.toMutableList()
             val tags = newTagsList.map { it.text.toString() }.toMutableList()

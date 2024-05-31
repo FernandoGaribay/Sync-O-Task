@@ -1,7 +1,7 @@
 package com.aristidevs.syncotask.interfaces
 
-import com.aristidevs.syncotask.objects.Notes
+import com.aristidevs.syncotask.objects.Note
 
 interface onNoteClickListener {
-    fun onItemClick(note: Notes)
+    fun onItemClick(note: Note)
 }

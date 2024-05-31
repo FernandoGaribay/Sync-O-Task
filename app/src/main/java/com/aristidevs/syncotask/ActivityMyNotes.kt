@@ -3,6 +3,7 @@ package com.aristidevs.syncotask
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,7 @@ import com.aristidevs.syncotask.activity.DashboardActivity
 import com.aristidevs.syncotask.adapters.myNotesAdapter
 import com.aristidevs.syncotask.interfaces.onNoteClickListener
 import com.aristidevs.syncotask.objects.NoteProvider
-import com.aristidevs.syncotask.objects.Notes
+import com.aristidevs.syncotask.objects.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
@@ -73,7 +74,7 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
         }
     }
 
-    private fun updateInProccess(filteredTasksDate: List<Notes>) {
+    private fun updateInProccess(filteredTasksDate: List<Note>) {
         if (filteredTasksDate.isEmpty()) {
             adapter = myNotesAdapter(emptyList())
         } else {
@@ -82,10 +83,14 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
         }
 
         recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
     }
-    override fun onItemClick(note: Notes) {
+    override fun onItemClick(note: Note) {
+        showToast("Título: ${note.title}")
+    }
 
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -8,9 +8,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.interfaces.onNoteClickListener
-import com.aristidevs.syncotask.objects.Notes
+import com.aristidevs.syncotask.objects.Note
 
-class myNotesAdapter (private var listNotes: List<Notes>): RecyclerView.Adapter<myNotesAdapter.ViewHolder>() {
+class myNotesAdapter (private var listNotes: List<Note>): RecyclerView.Adapter<myNotesAdapter.ViewHolder>() {
 
     private lateinit var clickListener: onNoteClickListener
     private val VIEW_TYPE_WITH_NOTES = 1
@@ -72,7 +72,7 @@ class myNotesAdapter (private var listNotes: List<Notes>): RecyclerView.Adapter<
             }
         }
 
-        fun render(note: Notes) {
+        fun render(note: Note) {
             title.text = note.title
             description.text = note.description
             date.text = note.date

@@ -8,7 +8,7 @@ import com.google.firebase.database.ValueEventListener
 
 class NoteProvider {
 
-    var listNotes = mutableListOf<Notes>()
+    var listNotes = mutableListOf<Note>()
     lateinit var dbRef: DatabaseReference
     private var onDataChangeCallback: (() -> Unit)? = null
 
@@ -28,7 +28,7 @@ class NoteProvider {
                 if (snapshot.exists()) {
                     for (noteSnap in snapshot.children) {
                         val noteId = noteSnap.key // Obtener el ID del objeto
-                        val noteData = noteSnap.getValue(Notes::class.java)
+                        val noteData = noteSnap.getValue(Note::class.java)
 
                         noteData?.noteId = noteId!!
                         if (noteData != null) {
