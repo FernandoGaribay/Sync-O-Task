@@ -62,4 +62,5 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
     implementation ("com.google.code.gson:gson:2.8.9")
 
+    implementation("me.tankery.lib:circularSeekBar:1.4.2")
 }
