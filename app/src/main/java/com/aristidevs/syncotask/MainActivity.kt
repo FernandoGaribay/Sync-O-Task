@@ -45,12 +45,6 @@ class MainActivity : AppCompatActivity() {
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 handleFacebookAccessToken(loginResult.accessToken)
-                val intent = Intent(this@MainActivity, DashboardActivity::class.java)
-                startActivity(intent)
-                finish()
-                // Puedes usar el accessToken para acceder a la información del usuario
-                Toast.makeText(this@MainActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT)
-                    .show()
             }
 
             override fun onCancel() {
@@ -71,16 +65,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Verifica si el usuario está firmado (no es nulo) y actualiza la UI en consecuencia.
         val currentUser = auth.currentUser
-        updateUI(currentUser)
+        if (currentUser != null) {
+            updateUI(currentUser)
+        }
     }
 
     private fun handleFacebookAccessToken(token: AccessToken) {
@@ -115,9 +106,5 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    companion object {
-        private const val TAG = "MainActivity"
     }
 }

@@ -78,6 +78,6 @@
     <!-- Fb Login -->
     <string name="facebook_app_id">494992399534817</string>
     <string name="fb_login_protocol_scheme">fb494992399534817</string>
-    <string name="facebook_client_token">c362009e578d4ebb6115060f3c0d1bfd</string>
+    <string name="facebook_client_token">c7151de8e6621621831b5242131ab548</string>
 
 </resources>
