@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
-            finish() // Cierra activity_main para que el usuario no pueda volver atrás
         }
 
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
