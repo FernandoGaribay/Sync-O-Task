@@ -26,6 +26,7 @@ import com.aristidevs.syncotask.objects.DatabaseManager
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -43,6 +44,7 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
     private lateinit var textHighPriority: TextView
     private lateinit var textMediumPriority: TextView
     private lateinit var textLowPriority: TextView
+    private lateinit var textViewUserName: TextView
 
     private lateinit var btnMenu: ImageView
     private lateinit var btnMyTasks: LinearLayout
@@ -65,6 +67,17 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         DatabaseManager.initialize(this)
 
         initViews()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            val name = currentUser.displayName
+            if (name != null) {
+                textViewUserName.text = "Hola: $name"
+            } else {
+                textViewUserName.text = "Nombre no disponible"
+            }
+        } else {
+            textViewUserName.text = "Usuario no autenticado"
+        }
 
         setClickListeners() // updateInProccess() y updateTextsPriority()
         taskProvider.getTasksData()
@@ -99,6 +112,7 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
     private fun initViews() {
         taskProvider = TaskProvider()
 
+        textViewUserName = findViewById<TextView>(R.id.textViewUsername)
         btnMenu = findViewById<ImageView>(R.id.btnMenu)
         textMaxPriority = findViewById<EditText>(R.id.text_maxTasks)
         textHighPriority = findViewById<EditText>(R.id.text_highTasks)
@@ -121,7 +135,7 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         btnMyNotes.setOnClickListener {
             val intent = Intent(this, ActivityMyNotes::class.java)
             startActivity(intent)
-            finish() // Cierra el activity para que el usuario no pueda volver atrás
+
         }
         btnPomodoro.setOnClickListener { showToast("Boton Pomodoro") }
         btnCalendar.setOnClickListener { showToast("Boton Calendar") }

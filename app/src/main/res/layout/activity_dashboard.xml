@@ -60,10 +60,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textViewUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Hello, Fernando!"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:textSize="22dp"
