@@ -20,6 +20,7 @@ import com.aristidevs.syncotask.dialogs.CreateTagDialog
 import com.aristidevs.syncotask.dialogs.DatePickerDialogFragment
 import com.aristidevs.syncotask.dialogs.TimePickerDialogFragment
 import com.aristidevs.syncotask.objects.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
@@ -55,6 +56,14 @@ class activity_createTask : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_task)
 
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null) {
+            // Handle user not authenticated
+            showToast("User not authenticated")
+            finish()
+            return
+        }
+        val userId = currentUser.uid
 
         //region Inicializar metodos
         btnBack = findViewById<ImageView>(R.id.btnBack)
@@ -167,7 +176,7 @@ class activity_createTask : AppCompatActivity() {
                 state = false
             )
 
-            if (title.isEmpty()) {
+            if (task.title.isEmpty()) {
                 showToast("Por favor, ingrese un título.")
             } else if (task.date.isEmpty()) {
                 showToast("Por favor, ingrese una fecha.")
@@ -176,9 +185,9 @@ class activity_createTask : AppCompatActivity() {
             } else if (task.endTime.isEmpty()) {
                 showToast("Por favor, ingrese una hora de finalización.")
             } else {
-                dbRef = FirebaseDatabase.getInstance().getReference("Tasks")
-                val empId = dbRef.push().key!!
-                dbRef.child(empId).setValue(task)
+                dbRef = FirebaseDatabase.getInstance().getReference("Tasks").child(userId)
+                val taskId = dbRef.push().key!!
+                dbRef.child(taskId).setValue(task)
                     .addOnCompleteListener{
                         Toast.makeText(this,"Datos subidos", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener{ err ->

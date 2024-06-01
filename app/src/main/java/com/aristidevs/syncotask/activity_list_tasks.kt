@@ -14,6 +14,7 @@ import com.aristidevs.syncotask.dialogs.EditTaskDialog
 import com.aristidevs.syncotask.interfaces.onTaskClickListener
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -36,25 +37,31 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_tasks)
 
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid ?: ""
+        val strPriority = intent.getStringExtra("priority")!!
+
         initViews()
-        initRecyclerView(strPriority)
+        initRecyclerView(uid, strPriority)
         setClickListeners()
     }
 
     private fun initViews() {
-        taskProvider = TaskProvider()
-        btnBack = findViewById<ImageView>(R.id.btnBack)
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid ?: ""
+        taskProvider = TaskProvider(uid)
+
+        btnBack = findViewById(R.id.btnBack)
         strPriority = intent.getStringExtra("priority")!!
 
-        textOverdue = findViewById<TextView>(R.id.textOverdue)
-        textToDo = findViewById<TextView>(R.id.textToDo)
-        textOpen = findViewById<TextView>(R.id.textOpen)
-        textDueToday = findViewById<TextView>(R.id.textDueToday)
+        textOverdue = findViewById(R.id.textOverdue)
+        textToDo = findViewById(R.id.textToDo)
+        textOpen = findViewById(R.id.textOpen)
+        textDueToday = findViewById(R.id.textDueToday)
     }
 
     private fun setClickListeners() {
         btnBack.setOnClickListener { finish() }
-
 
         // Registra el callback para actualizar el adaptador cuando los datos cambien
         taskProvider.setOnDataChangedCallback {
@@ -68,8 +75,11 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
         }
     }
 
-    private fun initRecyclerView(priorityFilter: String) {
+    private fun initRecyclerView(uid: String, priorityFilter: String) {
         recyclerView = findViewById(R.id.listTasksRecycler)
+
+        // Inicializa TaskProvider con el UID del usuario actual
+        taskProvider = TaskProvider(uid)
 
         // Filtra las tareas que coinciden con la prioridad actual
         val filteredTasks = getFilteredTasks(priorityFilter)
@@ -139,6 +149,7 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
     private fun getFilteredTasksByDate(date: String): List<Task> {
         return taskProvider.listTasks.filter { it.date == date }
     }
+
     private fun getCurrentDate(): String {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return sdf.format(Date())

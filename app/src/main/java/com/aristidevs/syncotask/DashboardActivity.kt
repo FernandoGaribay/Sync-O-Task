@@ -110,24 +110,28 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
     }
 
     private fun initViews() {
-        taskProvider = TaskProvider()
+        // Inicializar el proveedor de tareas
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid ?: ""
+        taskProvider = TaskProvider(uid)
 
+        // Inicializar las vistas
         textViewUserName = findViewById<TextView>(R.id.textViewUsername)
         btnMenu = findViewById<ImageView>(R.id.btnMenu)
-        textMaxPriority = findViewById<EditText>(R.id.text_maxTasks)
-        textHighPriority = findViewById<EditText>(R.id.text_highTasks)
-        textMediumPriority = findViewById<EditText>(R.id.text_mediumTasks)
-        textLowPriority = findViewById<EditText>(R.id.text_lowTasks)
-        recyclerView = findViewById(R.id.inProgressRecycler)
-        btnMyTasks = findViewById(R.id.dashboard_btnMyTasks)
-        btnMyNotes = findViewById(R.id.dashboard_btnMyNotes)
-        btnPomodoro = findViewById(R.id.dashboard_btnPomodoro)
-        btnCalendar = findViewById(R.id.dashboard_btnCalendar)
-        btnCreateTask = findViewById(R.id.btnCreateNote)
-        btnMaxPriority = findViewById(R.id.btn_Tasks_MaxPriority)
-        btnHighPriority = findViewById(R.id.btn_Tasks_HighPriority)
-        btnMediumPriority = findViewById(R.id.btn_Tasks_MediumPriority)
-        btnLowPriority = findViewById(R.id.btn_Tasks_LowPriority)
+        textMaxPriority = findViewById<TextView>(R.id.text_maxTasks)
+        textHighPriority = findViewById<TextView>(R.id.text_highTasks)
+        textMediumPriority = findViewById<TextView>(R.id.text_mediumTasks)
+        textLowPriority = findViewById<TextView>(R.id.text_lowTasks)
+        recyclerView = findViewById<RecyclerView>(R.id.inProgressRecycler)
+        btnMyTasks = findViewById<LinearLayout>(R.id.dashboard_btnMyTasks)
+        btnMyNotes = findViewById<LinearLayout>(R.id.dashboard_btnMyNotes)
+        btnPomodoro = findViewById<LinearLayout>(R.id.dashboard_btnPomodoro)
+        btnCalendar = findViewById<LinearLayout>(R.id.dashboard_btnCalendar)
+        btnCreateTask = findViewById<FloatingActionButton>(R.id.btnCreateNote)
+        btnMaxPriority = findViewById<CardView>(R.id.btn_Tasks_MaxPriority)
+        btnHighPriority = findViewById<CardView>(R.id.btn_Tasks_HighPriority)
+        btnMediumPriority = findViewById<CardView>(R.id.btn_Tasks_MediumPriority)
+        btnLowPriority = findViewById<CardView>(R.id.btn_Tasks_LowPriority)
     }
 
     private fun setClickListeners() {

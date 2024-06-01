@@ -19,6 +19,7 @@ import com.aristidevs.syncotask.objects.DatabaseHelper
 import com.aristidevs.syncotask.objects.DatabaseManager
 import com.aristidevs.syncotask.objects.Task
 import com.aristidevs.syncotask.objects.TaskProvider
+import com.google.firebase.auth.FirebaseAuth
 import java.lang.Exception
 
 class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
@@ -32,13 +33,14 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_pomodoro)
         initViews()
-        setClickListeners() // updateInProccess() y updateTextsPriority()
+        setClickListeners()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid ?: ""
+        taskProvider = TaskProvider(uid)
         taskProvider.getTasksData()
     }
 
     private fun initViews() {
-        taskProvider = TaskProvider()
-
         recyclerView = findViewById(R.id.recyclerPomodoroTasks)
     }
 
@@ -72,7 +74,6 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
         db.execSQL("delete from Tasks")
         for (task in tasks) {
             try {
-
                 val values = ContentValues().apply {
                     put(DatabaseHelper.COLUMN_TITLE, task.title)
                     put(DatabaseHelper.COLUMN_DATE, task.date)
@@ -84,7 +85,6 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
                     put(DatabaseHelper.COLUMN_SUB_TASKS, task.subTasks.joinToString(","))
                     put(DatabaseHelper.COLUMN_TAGS, task.tags.joinToString(","))
                 }
-
                 db.insert(DatabaseHelper.TABLE_TASKS, null, values)
             } catch (e: Exception) {
                 Log.e("Dashboard", "Error al guardar datos en SQLite: ", e)
