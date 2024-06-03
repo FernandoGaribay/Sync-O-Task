@@ -48,19 +48,22 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
 
     private fun setClickListeners() {
         btnMyTasks.setOnClickListener {
-            finish() // Cierra el activity para que el usuario no pueda volver atrás
+            finish()
         }
         btnMyNotes.setOnClickListener {
-
+            val intent = Intent(this, ActivityMyNotes::class.java)
+            startActivity(intent)
+            finish()
         }
         btnPomodoro.setOnClickListener {
             val intent = Intent(this, ActivityMyPomodoro::class.java)
             startActivity(intent)
-            finish() // Cierra el activity para que el usuario no pueda volver atrás
+            finish()
         }
         btnCalendar.setOnClickListener {
-
+            showToast("My Calendar")
         }
+
         btnCreateNote.setOnClickListener {
             val intent = Intent(this, activity_createNote::class.java)
             startActivity(intent)

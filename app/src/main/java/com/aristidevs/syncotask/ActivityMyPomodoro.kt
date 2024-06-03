@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,6 +30,11 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
     private lateinit var taskProvider: TaskProvider
     private lateinit var adapter: dashboardAdapter
 
+    private lateinit var btnMyTasks: LinearLayout
+    private lateinit var btnMyNotes: LinearLayout
+    private lateinit var btnPomodoro: LinearLayout
+    private lateinit var btnCalendar: LinearLayout
+
     private lateinit var tasks: MutableList<Task>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +48,35 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
     }
 
     private fun initViews() {
+        // Inicializar el proveedor de tareas
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid ?: ""
+        taskProvider = TaskProvider(uid)
+
+        btnMyTasks = findViewById(R.id.dashboard_btnMyTasks)
+        btnMyNotes = findViewById(R.id.dashboard_btnMyNotes)
+        btnPomodoro = findViewById(R.id.dashboard_btnPomodoro)
+        btnCalendar = findViewById(R.id.dashboard_btnCalendar)
+
         recyclerView = findViewById(R.id.recyclerPomodoroTasks)
     }
 
     private fun setClickListeners() {
+        btnMyTasks.setOnClickListener {
+            finish()
+        }
+        btnMyNotes.setOnClickListener {
+            val intent = Intent(this, ActivityMyNotes::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnPomodoro.setOnClickListener {
+            showToast("My Pomodoro")
+        }
+        btnCalendar.setOnClickListener {
+            showToast("My Calendar")
+        }
+
         taskProvider.setOnDataChangedCallback {
             var filteredTasks = taskProvider.listTasks.toMutableList()
 
@@ -94,5 +126,9 @@ class ActivityMyPomodoro : AppCompatActivity(), onTaskClickListener {
 
     override fun onItemClick(task: Task) {
 
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

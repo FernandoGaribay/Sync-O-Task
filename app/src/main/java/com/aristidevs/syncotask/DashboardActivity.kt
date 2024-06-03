@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.ActivityMyNotes
+import com.aristidevs.syncotask.ActivityMyPomodoro
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.activity_createTask
 import com.aristidevs.syncotask.activity_list_tasks
@@ -135,14 +136,18 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
     }
 
     private fun setClickListeners() {
-        btnMyTasks.setOnClickListener { showToast("My Tasks") }
+        btnMyTasks.setOnClickListener { }
         btnMyNotes.setOnClickListener {
             val intent = Intent(this, ActivityMyNotes::class.java)
             startActivity(intent)
-
         }
-        btnPomodoro.setOnClickListener { showToast("Boton Pomodoro") }
-        btnCalendar.setOnClickListener { showToast("Boton Calendar") }
+        btnPomodoro.setOnClickListener {
+            val intent = Intent(this, ActivityMyPomodoro::class.java)
+            startActivity(intent)
+        }
+        btnCalendar.setOnClickListener {
+            showToast("My Calendar")
+        }
         btnCreateTask.setOnClickListener {
             startActivity(
                 Intent(
@@ -164,7 +169,8 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
             filteredTasks = getFilteredTasksByDate(filteredTasks, getCurrentDate())
             filteredTasks = getFilteredTasksByState(filteredTasks)
 
-            tasks = taskProvider.listTasks.filter { it.state == false || it.state == true }.toMutableList()
+            tasks = taskProvider.listTasks.filter { it.state == false || it.state == true }
+                .toMutableList()
             saveFirestoreDataToSQLite()
 
             // Filtra las tareas que coinciden con la prioridad
@@ -215,7 +221,10 @@ class DashboardActivity : AppCompatActivity(), onTaskClickListener {
         startActivity(intent)
     }
 
-    private fun getFilteredTasksByDate(listTask: MutableList<Task>, date: String): MutableList<Task> {
+    private fun getFilteredTasksByDate(
+        listTask: MutableList<Task>,
+        date: String
+    ): MutableList<Task> {
         return listTask.filter { it.date == date }.toMutableList()
     }
 
