@@ -98,7 +98,7 @@
                 android:id="@+id/recyclerPomodoroTasks"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="0dp"
@@ -111,6 +111,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:id="@+id/ConstraintPomodoro"
         app:layout_constraintTop_toBottomOf="@+id/ConstraintRecycler"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
@@ -127,21 +129,23 @@
             android:layout_height="0dp" >
 
             <TextView
+                android:id="@+id/sessions"
                 android:layout_weight="1"
-                android:text="4 of 6 Sessions"
+                android:text="Sessions: 0"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:paddingTop="90dp"
+                android:paddingTop="110dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
             <TextView
+                android:id="@+id/time"
                 android:layout_weight="1"
                 android:text="4:42"
                 android:textSize="35sp"
                 android:textStyle="bold"
-                android:paddingBottom="80dp"
+                android:paddingBottom="110dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -160,13 +164,14 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <me.tankery.lib.circularseekbar.CircularSeekBar
+                android:id="@+id/circularSeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 app:cs_circle_color="@color/light_gray"
                 app:cs_circle_fill="@color/transparent"
                 app:cs_circle_progress_color="@color/dark_blue"
-                app:cs_circle_stroke_width="20dp"
+                app:cs_circle_stroke_width="30dp"
                 app:cs_circle_style="round"
                 app:cs_circle_x_radius="0dp"
                 app:cs_circle_y_radius="0dp"
@@ -181,8 +186,8 @@
                 app:cs_pointer_alpha_ontouch="5"
                 app:cs_pointer_angle="0"
                 app:cs_pointer_color="@color/dark_blue"
-                app:cs_pointer_halo_border_width="10dp"
-                app:cs_pointer_stroke_width="35dp"
+                app:cs_pointer_halo_border_width="80dp"
+                app:cs_pointer_stroke_width="50dp"
                 app:cs_progress="75"
                 app:cs_use_custom_radii="false" />
 
