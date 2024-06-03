@@ -111,8 +111,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"
         android:id="@+id/ConstraintPomodoro"
         app:layout_constraintTop_toBottomOf="@+id/ConstraintRecycler"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
@@ -120,45 +120,12 @@
         app:layout_constraintStart_toStartOf="parent" >
 
         <LinearLayout
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/LinearBotones"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="0dp" >
-
-            <TextView
-                android:id="@+id/sessions"
-                android:layout_weight="1"
-                android:text="Sessions: 0"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:paddingTop="110dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_weight="1"
-                android:text="4:42"
-                android:textSize="35sp"
-                android:textStyle="bold"
-                android:paddingBottom="110dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/LinearCircularSeekbar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/LinearBotones"
+            app:layout_constraintBottom_toTopOf="@+id/linearLabels"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -171,7 +138,7 @@
                 app:cs_circle_color="@color/light_gray"
                 app:cs_circle_fill="@color/transparent"
                 app:cs_circle_progress_color="@color/dark_blue"
-                app:cs_circle_stroke_width="30dp"
+                app:cs_circle_stroke_width="20dp"
                 app:cs_circle_style="round"
                 app:cs_circle_x_radius="0dp"
                 app:cs_circle_y_radius="0dp"
@@ -186,10 +153,45 @@
                 app:cs_pointer_alpha_ontouch="5"
                 app:cs_pointer_angle="0"
                 app:cs_pointer_color="@color/dark_blue"
-                app:cs_pointer_halo_border_width="80dp"
-                app:cs_pointer_stroke_width="50dp"
+                app:cs_pointer_halo_border_width="0dp"
+                app:cs_pointer_stroke_width="30dp"
                 app:cs_progress="75"
                 app:cs_use_custom_radii="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLabels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/LinearCircularSeekbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/LinearBotones"
+            >
+
+            <TextView
+                android:id="@+id/sessions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Sessions: 0"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="4:42"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -200,8 +202,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/LinearCircularSeekbar"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLabels"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
