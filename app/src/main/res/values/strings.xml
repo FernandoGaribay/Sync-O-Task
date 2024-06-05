@@ -75,6 +75,12 @@
     <string name="editTask_btnEditTask">Edit</string>
     <string name="editTask_btnDeleteTask">Delete</string>
 
+    <!--Activity Edit Note Strings-->
+    <string name="editTask_lblEditNote">EDIT NOTE</string>
+    <string name="editTask_btnDeleteNote">Delete Note</string>
+    <string name="editTask_btnEditNote">Edit Note</string>
+    <string name="editTask_btnEditImage">Edit Image</string>
+
     <!-- Fb Login -->
     <string name="facebook_app_id">494992399534817</string>
     <string name="fb_login_protocol_scheme">fb494992399534817</string>

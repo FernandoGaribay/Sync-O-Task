@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aristidevs.syncotask.activity.DashboardActivity
 import com.aristidevs.syncotask.adapters.myNotesAdapter
+import com.aristidevs.syncotask.dialogs.EditNoteDialog
+import com.aristidevs.syncotask.dialogs.EditTaskDialog
 import com.aristidevs.syncotask.interfaces.onNoteClickListener
 import com.aristidevs.syncotask.objects.NoteProvider
 import com.aristidevs.syncotask.objects.Note
@@ -91,6 +93,8 @@ class ActivityMyNotes : AppCompatActivity(), onNoteClickListener {
     }
     override fun onItemClick(note: Note) {
         showToast("Título: ${note.title}")
+        val editNoteDialog = EditNoteDialog(this, supportFragmentManager)
+        editNoteDialog.showEditNoteDialog(note)
     }
 
     private fun showToast(message: String) {

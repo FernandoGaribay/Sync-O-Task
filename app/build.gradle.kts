@@ -63,4 +63,6 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.8.9")
 
     implementation("me.tankery.lib:circularSeekBar:1.4.2")
+    implementation ("com.google.firebase:firebase-storage:20.0.0")
+
 }
