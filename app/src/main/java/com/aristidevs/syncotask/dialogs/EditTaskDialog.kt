@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.aristidevs.syncotask.R
 import com.aristidevs.syncotask.objects.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -276,13 +277,19 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
             } else if (task.endTime.isEmpty()) {
                 showToast("Por favor, ingrese una hora de finalización.")
             } else {
-                val dbRef = FirebaseDatabase.getInstance().getReference("Tasks").child(taskId)
-                dbRef.setValue(task).addOnCompleteListener { taskResult ->
-                    if (taskResult.isSuccessful) {
-                        showToast("Tarea: " + task.title + " actualizada.")
-                    } else {
-                        // Manejar el error
-                        showToast("Error al actualizar la tarea: " + taskResult.exception?.message)
+                val currentUser = FirebaseAuth.getInstance().currentUser
+                if (currentUser != null) {
+                    val uid = currentUser?.uid
+                    val dbRef =
+                        FirebaseDatabase.getInstance().getReference("Tasks").child(currentUser.uid)
+                            .child(taskId)
+                    dbRef.setValue(task).addOnCompleteListener { taskResult ->
+                        if (taskResult.isSuccessful) {
+                            showToast("Tarea: " + task.title + " actualizada.")
+                        } else {
+                            // Manejar el error
+                            showToast("Error al actualizar la tarea: " + taskResult.exception?.message)
+                        }
                     }
                 }
                 mAlertDialog.dismiss()
@@ -308,7 +315,7 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
             val taskDeleted = dbRef.removeValue()
             taskDeleted.addOnSuccessListener {
                 showToast("Tarea: \"" + task.title + "\" eliminada.")
-            }.addOnFailureListener{error ->
+            }.addOnFailureListener { error ->
                 showToast("Hubo un error al eliminar la tarea: \"" + task.title + "\"")
             }
             mAlertDialog.dismiss()
