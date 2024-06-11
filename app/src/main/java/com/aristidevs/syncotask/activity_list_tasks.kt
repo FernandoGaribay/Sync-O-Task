@@ -44,6 +44,7 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
         initViews()
         initRecyclerView(uid, strPriority)
         setClickListeners()
+        taskProvider.getTasksData()
     }
 
     private fun initViews() {
@@ -78,9 +79,6 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
     private fun initRecyclerView(uid: String, priorityFilter: String) {
         recyclerView = findViewById(R.id.listTasksRecycler)
 
-        // Inicializa TaskProvider con el UID del usuario actual
-        taskProvider = TaskProvider(uid)
-
         // Filtra las tareas que coinciden con la prioridad actual
         val filteredTasks = getFilteredTasks(priorityFilter)
 
@@ -98,7 +96,6 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
     override fun onItemClick(task: Task) {
         val editTaskDialog = EditTaskDialog(this, supportFragmentManager)
         editTaskDialog.showEditTaskDialog(task)
-        //Toast.makeText(this, "Título: ${task.title}", Toast.LENGTH_SHORT).show()
     }
 
     //region Metodos filtrado de fechas
@@ -155,4 +152,9 @@ class activity_list_tasks : AppCompatActivity(), onTaskClickListener {
         return sdf.format(Date())
     }
     //endregion
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
+

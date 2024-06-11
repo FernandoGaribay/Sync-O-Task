@@ -59,21 +59,22 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
         mAlertDialog = mBuilder.show()
 
         taskId = task.taskId!!
-        title = mDialogView.findViewById(R.id.textTitle)
-        date = mDialogView.findViewById(R.id.textDate)
-        startTime = mDialogView.findViewById(R.id.textStartTime)
-        endTime = mDialogView.findViewById(R.id.textEndTime)
-        description = mDialogView.findViewById(R.id.textDescription)
-        linearSubTasks = mDialogView.findViewById(R.id.linearSubTasks)
-        textCreateSubTask = mDialogView.findViewById(R.id.textCreateSubTask)
-        linearTags = mDialogView.findViewById(R.id.linearTags)
-        btnAddTag = mDialogView.findViewById(R.id.btnAddTag)
-        btnLowPriority = mDialogView.findViewById(R.id.btnLowPriority)
-        btnMediumPriority = mDialogView.findViewById(R.id.btnMediumPriority)
-        btnHighPriority = mDialogView.findViewById(R.id.btnHighPriority)
-        btnMaxPriority = mDialogView.findViewById(R.id.btnMaxPriority)
-        btnEditTask = mDialogView.findViewById(R.id.btnCreateNote)
-        btnDeleteTask = mDialogView.findViewById(R.id.btnDeleteTask)
+
+        title = mDialogView.findViewById<EditText>(R.id.textTitle).also { checkNotNull(it) }
+        date = mDialogView.findViewById<EditText>(R.id.textDate).also { checkNotNull(it) }
+        startTime = mDialogView.findViewById<EditText>(R.id.textStartTime).also { checkNotNull(it) }
+        endTime = mDialogView.findViewById<EditText>(R.id.textEndTime).also { checkNotNull(it) }
+        description = mDialogView.findViewById<EditText>(R.id.textDescription).also { checkNotNull(it) }
+        linearSubTasks = mDialogView.findViewById<LinearLayout>(R.id.linearSubTasks).also { checkNotNull(it) }
+        textCreateSubTask = mDialogView.findViewById<EditText>(R.id.textCreateSubTask).also { checkNotNull(it) }
+        linearTags = mDialogView.findViewById<LinearLayout>(R.id.linearTags).also { checkNotNull(it) }
+        btnAddTag = mDialogView.findViewById<TextView>(R.id.btnAddTag).also { checkNotNull(it) }
+        btnLowPriority = mDialogView.findViewById<RadioButton>(R.id.btnLowPriority).also { checkNotNull(it) }
+        btnMediumPriority = mDialogView.findViewById<RadioButton>(R.id.btnMediumPriority).also { checkNotNull(it) }
+        btnHighPriority = mDialogView.findViewById<RadioButton>(R.id.btnHighPriority).also { checkNotNull(it) }
+        btnMaxPriority = mDialogView.findViewById<RadioButton>(R.id.btnMaxPriority).also { checkNotNull(it) }
+        btnEditTask = mDialogView.findViewById<Button>(R.id.btnCreateNote).also { checkNotNull(it) }
+        btnDeleteTask = mDialogView.findViewById<Button>(R.id.btnDeleteTask).also { checkNotNull(it) }
 
         initTextViews(task)
     }
