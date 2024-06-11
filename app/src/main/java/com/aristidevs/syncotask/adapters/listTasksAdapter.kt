@@ -76,6 +76,7 @@ class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
                 imgPriority.setImageResource(R.drawable.low)
             }
 
+            layoutTags.removeAllViews()
             if(!(task.tags.size == 0)){
                 for (i in 0 until task.tags.size) {
                     addTag(task.tags[i])
@@ -132,6 +133,5 @@ class listTasksAdapter(private var listTasks: List<Task>): RecyclerView.Adapter<
             return newTag
         }
         //endregion
-
     }
 }
