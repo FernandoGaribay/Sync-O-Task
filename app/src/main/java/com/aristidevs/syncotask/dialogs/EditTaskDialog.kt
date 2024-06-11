@@ -312,14 +312,21 @@ class EditTaskDialog(private val context: Context, private val fragmentManager: 
                 lvlNewPriority,
                 state = false
             )
-            val dbRef = FirebaseDatabase.getInstance().getReference("Tasks").child(taskId)
-            val taskDeleted = dbRef.removeValue()
-            taskDeleted.addOnSuccessListener {
-                showToast("Tarea: \"" + task.title + "\" eliminada.")
-            }.addOnFailureListener { error ->
-                showToast("Hubo un error al eliminar la tarea: \"" + task.title + "\"")
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser != null) {
+                val uid = currentUser?.uid
+
+                val dbRef =
+                    FirebaseDatabase.getInstance().getReference("Tasks").child(currentUser.uid)
+                        .child(taskId)
+                val taskDeleted = dbRef.removeValue()
+                taskDeleted.addOnSuccessListener {
+                    showToast("Tarea: \"" + task.title + "\" eliminada.")
+                }.addOnFailureListener { error ->
+                    showToast("Hubo un error al eliminar la tarea: \"" + task.title + "\"")
+                }
+                mAlertDialog.dismiss()
             }
-            mAlertDialog.dismiss()
         }
     }
 
